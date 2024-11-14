@@ -1,6 +1,8 @@
 #ifndef WORKSHOP10_SHAPE_H
 #define WORKSHOP10_SHAPE_H
 
+#include <iostream>
+#include <vector>
 #include <numbers>
 
 class Point {
@@ -19,11 +21,13 @@ class Vec2 {
     private:
     Point m_a;
     Point m_b;
+    double m_length;
 
     public:
-    const double& length;
+
     const Point& a;
     const Point& b;
+    const double& length;
 
     Vec2(Point, Point);
     constexpr Vec2& operator+=(Vec2& rhs);
@@ -38,32 +42,34 @@ class Shape{
     Shape( const double& a, const double& c);
 
     const double& area;
-    const double& circumference;
+    const double& perimeter;
+
+    virtual std::ostream& print(std::ostream& out) const;
 };
 
 class Circle : public Shape {
     private:
     const double m_radius;
     const double m_area;
-    const double m_circumference;
+    const double m_perimeter;
 
     public:
     Circle(double r);
+
+    virtual std::ostream& print(std::ostream& out) const override;
 };
 
 class Parallelogram : public Shape {
     private:
-    const double m_height;
-    const double m_width;
+    const double m_side_a;
+    const double m_side_b;
     const double m_area;
     const double m_corner_angle;
-    const double m_circumference;
+    const double m_perimeter;
 
     public:
-    Parallelogram(double side);
-    Parallelogram(double side, double theta);
-    Parallelogram(double height, double width);
-    Parallelogram(double height, double width, double theta);
+    Parallelogram(double a, double theta);
+    Parallelogram(double a, double b, double theta);
 };
 
 class Rectangle : public Parallelogram {
@@ -74,14 +80,11 @@ class Rectangle : public Parallelogram {
 
 class Triangle : public Shape {
     private:
-    Point m_a;
-    Point m_b;
-    Point m_c;
     Vec2 m_AB;
     Vec2 m_BC;
     Vec2 m_CA;
     double m_area;
-    double m_circumference;
+    double m_perimeter;
 
     public:
     Triangle(Point, Point, Point);

@@ -1,4 +1,5 @@
 #include <cmath>
+#include <numbers>
 #include "Shapes.h"
 
 double d_to_r(double deg){
@@ -12,11 +13,11 @@ Point::Point(double x, double y) :
 
 Vec2::Vec2(Point a, Point b) : m_a{a}, m_b{b}, 
     a{m_a}, b{m_b},
-    length{ std::abs(
+    m_length{ std::abs(
                 std::sqrt(
                     std::pow(b.x - a.x, 2.0) + 
                     std::pow(b.y - a.y, 2.0)) 
-        )} {
+        )}, length{m_length} {
 
 }
 
@@ -25,35 +26,64 @@ Vec2 operator+(const Point& lhs, const Point& rhs){
 }
 
 
-Shape::Shape(const double& a, const double& c ) : area{a}, circumference{c} {}
+Shape::Shape(const double& a, const double& c ) : area{a}, perimeter{c} {}
 
+std::ostream& Shape::print(std::ostream& out) const{
+    out << "Area: " << this->area << "Perimeter: " << this->perimeter;
+    return out;
+}
 
-Circle::Circle(double r) : m_radius{r}, 
-    m_area{(r * r) * std::numbers::pi },
-    m_circumference{r * (std::numbers::pi * 2)},
-    Shape(m_area, m_circumference)
+std::ostream& operator << (std::ostream& out, const Shape& shape){
+    return shape.print(out);
+}
+
+Circle::Circle(double r_in) : m_radius{r_in}, 
+    m_area((r_in * r_in) * std::numbers::pi),
+    m_perimeter(r_in * (std::numbers::pi * 2)),
+    Shape(m_area, m_perimeter)
      {
 
 }
 
-Parallelogram::Parallelogram(double side) : 
-    m_height{side}, m_width{side}, m_corner_angle{90},
-    m_area{m_height*m_width}, m_circumference{ 
-        (m_area / ( m_width * std::sin(d_to_r(180-m_corner_angle))) * 2 + ( m_width * 2 ) )
+std::ostream& Circle::print(std::ostream& out) const {
+    return Shape::print(out);
+}
+
+Parallelogram::Parallelogram(double a, double theta) : 
+    m_side_a{a}, m_side_b{a}, m_corner_angle{theta},
+    m_area{m_side_a*m_side_b}, 
+    m_perimeter{ 
+        (m_area / ( m_side_a * std::sin(d_to_r(180-theta))) * 2 + ( m_side_b * 2 ) )
      },
-    Shape(m_area, m_circumference){
+    Shape(m_area, m_perimeter){
+}
+
+Parallelogram::Parallelogram(double a, double b, double theta) : 
+    m_side_a{a}, m_side_b{b}, m_corner_angle{theta},
+    m_area{m_side_a*m_side_b * std::sin(d_to_r(180-theta))}, 
+    m_perimeter{ 
+        (m_area / ( m_side_a * std::sin(d_to_r(180-theta))) * 2 + ( m_side_b * 2 ) )
+     },
+    Shape(m_area, m_perimeter){
+}
+
+Rectangle::Rectangle(double side) : 
+    Parallelogram(side, 90){
+
+}
+
+Rectangle::Rectangle(double height, double width) : 
+    Parallelogram(height, width, 90){
 
 }
 
 Triangle::Triangle(Point a, Point b, Point c) : 
-    m_a{a}, m_b{b}, m_c{c},
     m_AB{a, b}, m_BC{b, c}, m_CA{c, a},
-    m_circumference{m_AB.length + m_BC.length + m_CA.length},
-    m_area{ sqrt( (m_circumference/2) *   // Heron's formula
-        (m_circumference/2 - m_AB.length) *
-        (m_circumference/2 - m_BC.length) *
-        (m_circumference/2 - m_CA.length) 
-    )}, Shape(m_area, m_circumference)
+    m_perimeter{m_AB.length + m_BC.length + m_CA.length},
+    m_area( //heron's formula
+        std::sqrt( (m_perimeter/2.0) * (m_perimeter/2.0 - m_AB.length) * (m_perimeter/2.0 - m_BC.length) * (m_perimeter/2.0 - m_CA.length) )
+    ),
+    Shape(m_area, m_perimeter)
  {
 
 }
