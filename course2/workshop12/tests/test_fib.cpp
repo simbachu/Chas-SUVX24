@@ -4,7 +4,7 @@
 
 TEST_CASE("Fibonnaci numbers"){
  // N * (0.694) ~ bits
- // N = 46 should be break point for 32 bits
+ // N = 46 should be above break point for 32 bits
  // N = 93 for unsigned long long/u64
 
     uint16_t input_1 {1};
