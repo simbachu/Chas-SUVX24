@@ -1,0 +1,50 @@
+[
+    {
+        "birth_year": "1968",
+        "email": "antje@gmail.com",
+        "first_name": "Antje",
+        "id": 1,
+        "last_name": "Svensson",
+        "phone": "0709-663300"
+    },
+    {
+        "birth_year": "1947",
+        "email": "gunsan60@gmail.com",
+        "first_name": "Gun",
+        "id": 2,
+        "last_name": "Persson",
+        "phone": "0702-657822"
+    },
+    {
+        "birth_year": "1999",
+        "email": "",
+        "first_name": "Amir",
+        "id": 3,
+        "last_name": "Sana",
+        "phone": "076-2658977"
+    },
+    {
+        "birth_year": "",
+        "email": "boka@klippoteket.se",
+        "first_name": "Klippoteket",
+        "id": 4,
+        "last_name": "",
+        "phone": "+46705889963"
+    },
+    {
+        "birth_year": "1955",
+        "email": "contact@deesniderbook.com",
+        "first_name": "Dee",
+        "id": 5,
+        "last_name": "Snider",
+        "phone": "+1(555)1234"
+    },
+    {
+        "birth_year": "1963",
+        "email": "info@dileva.se",
+        "first_name": "Thomas",
+        "id": 6,
+        "last_name": "di Leva",
+        "phone": "08-4026000"
+    }
+]

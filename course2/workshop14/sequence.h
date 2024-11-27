@@ -28,7 +28,7 @@ class sequence{
         std::cout << "Maximum element: " << *max << '\n';
 
         // Iterate using for-each loop
-        for (int d : seq) {
+        for (auto d : seq) {
             std::cout << d << " ";
         }
         std::cout << '\n';
