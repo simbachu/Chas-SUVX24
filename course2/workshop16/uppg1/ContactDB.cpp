@@ -90,6 +90,16 @@ void ContactInfoDB::update_record(unsigned id, ContactInfo new_data){
     }
 }
 
+void ContactInfoDB::delete_record(unsigned id){
+    auto removed_record = std::erase_if(records,
+        [&](const auto& record ){ return record.id == id; });
+    if ( removed_record > 0 ){
+        return;        
+    } else {
+        throw std::invalid_argument("No record with that ID");
+    }
+}
+
 const ContactInfo& ContactInfoDB::read_record(unsigned id) const {
     auto found_record = std::find_if(records.begin(), records.end(),
         [&](const auto& record ){ return record.id == id; });
@@ -148,7 +158,7 @@ Contacts
 User interface for contact list via ContactInfoDB
 */
 
-Contacts::Contacts() : db{}, running{true}{
+Contacts::Contacts() : db{}{
 
 }
 
@@ -159,13 +169,13 @@ Contacts::operator bool(){
 void Contacts::menu(){
     std::string input_string {};
 
-    std::cout << '\n' << "  --- MENU: ---  " << '\n';
-    std::cout << "Select mode:" << '\n';
+    std::cout << " --- MENU: ---  " << '\n';
+    std::cout << " Select mode:" << '\n';
     std::cout << "1. List contacts" << '\n';
     std::cout << "2. Create new contact" << '\n';
     std::cout << "3. Update existing contact" << '\n';
     std::cout << "0: Exit" << '\n';
-    std::cout << std::endl << ">>  ";
+    std::cout << ">>  ";
 
     std::getline(std::cin, input_string);
     int option = input_string[0] - '0';
@@ -225,7 +235,7 @@ void Contacts::print_contacts(char sort){
 
 void Contacts::new_contact(){
     ContactInfo new_contact {};
-    
+    std::cout << " --- NEW CONTACT ---" << std::endl;
     std::cout << "Enter first name: ";
     std::getline(std::cin, new_contact.first_name);
 
@@ -244,21 +254,26 @@ void Contacts::new_contact(){
 
     std::cout << "Adding record: " << new_contact << std::endl;
     db.create_record(new_contact);
+    changes_made = true;
 }
 
 void Contacts::update_contact(){
     std::string input_string {};
     std::vector possible_records = db.get_indexes();
-    std::cout << " --- UPDATE RECORD --- " << '\n';
+    std::cout << " --- UPDATE CONTACT --- " << '\n';
     std::cout << db;
-    std::cout << "Select record to update by id:  >>" << std::endl;
+    std::cout << "Select record to update by id:  >>";
 
     std::getline(std::cin, input_string);
     int option = input_string[0] - '0';
-    while( std::find(possible_records.begin(), possible_records.end(), option) == possible_records.end() ){
-            std::cout << "Invalid id. Try again:  >>";
-            std::getline(std::cin, input_string);
-            option = input_string[0] - '0';
+    if ( option == 0 ){
+        return;
+    } else {
+        while( std::find(possible_records.begin(), possible_records.end(), option) == possible_records.end() ){
+                std::cout << "Invalid id. Try again:  >>";
+                std::getline(std::cin, input_string);
+                option = input_string[0] - '0';
+        }
     }
     auto to_update = db.get_record_by_id(option);
 
@@ -266,30 +281,35 @@ void Contacts::update_contact(){
     std::getline(std::cin, input_string);
     if ( input_string.size() != 0 ){
         to_update.first_name = input_string;
+        changes_made = true;
     }
 
     std::cout << "Enter updated last name [" << to_update.last_name << "]: ";
     std::getline(std::cin, input_string);
     if ( input_string.size() != 0 ){
         to_update.last_name = input_string;
+        changes_made = true;
     }
 
     std::cout << "Enter updated birth year [" << to_update.birth_year << "]: ";
     std::getline(std::cin, input_string);
     if ( input_string.size() != 0 ){
         to_update.birth_year = input_string;
+        changes_made = true;
     }
 
     std::cout << "Enter updated email address [" << to_update.email << "]: ";
     std::getline(std::cin, input_string);
     if ( input_string.size() != 0 ){
         to_update.email = input_string;
+        changes_made = true;
     }
 
     std::cout << "Enter updated phone number: [" << to_update.phone << "] ";
     std::getline(std::cin, input_string);
     if ( input_string.size() != 0 ){
         to_update.phone = input_string;
+        changes_made = true;
     }
     std::cout << std::endl;
 
@@ -299,31 +319,43 @@ void Contacts::update_contact(){
 void Contacts::remove_contact(){
     std::string input_string {};
     std::vector possible_records = db.get_indexes();
-    std::cout << " --- UPDATE RECORD --- " << '\n';
+    std::cout << " --- DELETE CONTACT --- " << '\n';
     std::cout << db;
-    std::cout << "Select record to remove by id:  >>" << std::endl;
+    std::cout << "Select record to remove by id:  >>";
 
     std::getline(std::cin, input_string);
     int option = input_string[0] - '0';
-    while( std::find(possible_records.begin(), possible_records.end(), option) == possible_records.end() ){
-            std::cout << "Invalid id. Try again:  >>";
-            std::getline(std::cin, input_string);
-            option = input_string[0] - '0';
+    if ( option == 0 ){
+        return;
+    } else {
+        while( std::find(possible_records.begin(), possible_records.end(), option) == possible_records.end() ){
+                std::cout << "Invalid id. Try again:  >>";
+                std::getline(std::cin, input_string);
+                option = input_string[0] - '0';
+        }
+        db.delete_record(option);
+        changes_made = true;
     }
 }
 
 void Contacts::exit(){
     std::string input_string {};
 
-    std::cout << "Do you want to save your changes? y/n   >> " << std::endl;
+    if (changes_made){
+        std::cout << "You have unsaved changes." << std::endl;        
+        std::cout << "Do you want to save? y/n   >> ";
 
-    while(input_string[0] != 'y' && input_string[0] != 'n' ){
-            std::getline(std::cin, input_string);
-    }
-    switch (input_string[0]){
-        case 'y':
-        db.save_records();
-        break;
+        while(input_string[0] != 'y' && input_string[0] != 'n' ){
+                std::getline(std::cin, input_string);
+        }
+        switch (input_string[0]){
+            case 'y':
+            db.save_records();
+            break;
+            default:
+            std::cout << "Exiting without saving changes.";
+            break;
+        }
     }
     running = false;
 }

@@ -36,7 +36,8 @@ class ContactInfoDB {
 class Contacts {
     private:
     ContactInfoDB db;
-    bool running;
+    bool running {true};
+    bool changes_made {false};
 
     public:
     Contacts();
