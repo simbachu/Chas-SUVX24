@@ -1,0 +1,14 @@
+[
+    {
+    "product_id":1,
+    "product_name": "Dark Souls 1: Prepare to Die Edition",
+    "product_description": "Prepare to die!",
+    "unit_price":12.99
+    },
+    {
+        "product_id":2,
+        "product_name": "Dark Souls Remastered",
+        "product_description": "Prepare to die, again.",
+        "unit_price":16.99
+    }
+]

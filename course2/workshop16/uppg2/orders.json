@@ -1,0 +1,17 @@
+[
+    {
+        "order_number":1,
+        "date":"1970-01-01",
+        "customer_id":1,
+        "order_rows":[
+            {
+                "product_id":1,
+                "amount":5
+            },
+            {
+                "product_id":2,
+                "amount":1
+            }
+        ]
+    }
+]
