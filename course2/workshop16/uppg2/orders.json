@@ -1,16 +1,31 @@
 [
     {
         "order_number":1,
-        "date":"1970-01-01",
+        "date":"2019-09-12",
         "customer_id":1,
         "order_rows":[
             {
-                "product_id":1,
+                "product_id":5,
                 "amount":5
             },
             {
                 "product_id":2,
                 "amount":1
+            }
+        ]
+    },
+    {
+        "order_number":2,
+        "date":"2024-02-29",
+        "customer_id":2,
+        "order_rows":[
+            {
+                "product_id":3,
+                "amount":15
+            },
+            {
+                "product_id":4,
+                "amount":20
             }
         ]
     }

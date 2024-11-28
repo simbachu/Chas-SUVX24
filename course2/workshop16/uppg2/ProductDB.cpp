@@ -1,7 +1,9 @@
 #include "ProductDB.h"
 
+#include <format>
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 
 Date::Date(int yyyy, int mm, int dd) : y{yyyy}, m{mm}, d{dd}{
@@ -65,10 +67,22 @@ std::ostream& operator<<(std::ostream& os, const Date& d ){
     return os;
 }
 
-/* Order::Order(Date &d, unsigned c_id, std::vector<OrderRow>&& r) : 
-    date{std::move(d)}, customer_id{c_id}, rows{std::move(r)} {
+std::string Date::to_string() const{
+    std::string out{};
+    out += std::to_string(y);
+    out += "-";
+    if ( m < 10){
+        out += "0";
+    }
+    out += std::to_string(m);
+    out += "-";
+    if (d < 9){
+        out += "0";
+    }
+    out += std::to_string(d);;
 
-} */
+    return out;
+}
 
 
 Order_History::Order_History() {
@@ -125,16 +139,60 @@ Order_History::Order_History() {
         Order new_order {Date::from_string(o["date"].get<std::string>()), c_id, row_v};
         orders.insert_or_assign(c_id, new_order);
     }
+
+    std::ifstream customer_file;
+    customer_file.exceptions(std::ifstream::badbit);
+    try {
+        customer_file.open("customers.json");
+    } catch(...) {
+        std::cerr << "Couldn't open file";
+        throw;
+    }
+    nlohmann::json customer_json;
+    try {
+        customer_file >> customer_json;
+    } catch(nlohmann::json::exception e){
+        std::cerr << "json read error";
+        throw e;
+    }
+    customer_file.close();
+    for ( const auto & p : customer_json ){
+        customers.insert(
+            { p["customer_id"].get<unsigned>(),
+             {
+                p["customer_name"].get<std::string>(),
+                p["customer_email"].get<std::string>()
+             }
+            }
+        );
+    }
 }
 
 std::ostream& operator << ( std::ostream& os, const Order_History& o_h ){
-
+    std::cout.setf(std::ios::fixed);
+    std::cout.setf(std::ios::showpoint);
     for( const auto & [k,v] : o_h.orders ){
-        os << "Order no." << k << " (" << v.date << "): " << '\n';
-        os << " Cust. nr " << v.customer_id << " " << '\n';
+        double order_total {};
+        std::string order = std::format(
+            "Order no. {} ({}): {} ({})\n", 
+            k, v.date.to_string(), o_h.customers.at(v.customer_id).name, o_h.customers.at(v.customer_id).email
+        );
+
+        os << std::setprecision(2);
+        os << order;
+
         for ( const auto & r : v.rows){
-            os << "  " << o_h.stockkeeping_units.at(r.product_id).product_name << " $" << o_h.stockkeeping_units.at(r.product_id).unit_price << " * " << r.amount << ": $" << o_h.stockkeeping_units.at(r.product_id).unit_price*r.amount << '\n';
+            double row_total {o_h.stockkeeping_units.at(r.product_id).unit_price*r.amount};
+            std::string name = o_h.stockkeeping_units.at(r.product_id).product_name;
+            double price = o_h.stockkeeping_units.at(r.product_id).unit_price;
+            unsigned amount = r.amount;
+            std::string row = std::format( "{:30} ${:^5.2f} * {:<4}: ${:8>.2f}\n", name, price, amount, row_total );
+            os << row;
+            order_total += row_total;
         }
+        os << "--------------------" << '\n';
+        std::string total = std::format("Subtotal: {:>5.2f}\nTax: {:>5.2f}\nTotal: {:>5.2f}\n", order_total*0.8, order_total*0.2, order_total);
+        os << total << std::endl;
     }
     return os;
 }

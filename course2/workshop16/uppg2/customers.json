@@ -1,0 +1,17 @@
+[
+    {
+        "customer_id":1,
+        "customer_name":"Jasmine Borealis",
+        "customer_email":"cyberletter@email.com"
+    },
+    {
+        "customer_id":2,
+        "customer_name":"Torsten von Ursus",
+        "customer_email":"bats@email.com"
+    },
+    {
+        "customer_id":3,
+        "customer_name":"Jedit Ojanen",
+        "customer_email":"catattack@email.com"
+    }
+]

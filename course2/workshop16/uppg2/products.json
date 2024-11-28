@@ -10,5 +10,23 @@
         "product_name": "Dark Souls Remastered",
         "product_description": "Prepare to die, again.",
         "unit_price":16.99
+    },
+    {
+        "product_id":3,
+        "product_name": "Fortnite 1000 V-Bucks",
+        "product_description": "Gift card to be redeemed",
+        "unit_price":6.99
+    },
+    {
+        "product_id":4,
+        "product_name": "Roblox 800 Robux",
+        "product_description": "Gift card to be redeemed",
+        "unit_price":11.99
+    },
+    {
+        "product_id":5,
+        "product_name": "Monster Energy ChugJug Edition",
+        "product_description": "Powder king",
+        "unit_price":3.49
     }
 ]

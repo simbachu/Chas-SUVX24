@@ -16,6 +16,7 @@ class Date{
     static Date from_ints(int yyyy, int mm, int dd);
 
     friend std::ostream& operator << (std::ostream&, const Date&);
+    std::string to_string() const;
 };
 
 struct Product {
@@ -33,14 +34,18 @@ struct Order {
     Date date;
     unsigned customer_id;
     std::vector<OrderRow> rows;
-/*     Order() = default;
-    Order(Date &d, unsigned c_id, std::vector<OrderRow> && r) */;
+};
+
+struct Customer {
+    std::string name;
+    std::string email;
 };
 
 class Order_History {
     private:
     std::map<unsigned, Product> stockkeeping_units;
     std::map<unsigned, Order> orders;
+    std::map<unsigned, Customer> customers;
 
     public:
     Order_History();
