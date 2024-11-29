@@ -5,17 +5,11 @@
 
 int main(){
     Library lib;
-    std::cout << lib;
-
     lib += Book{ 
         "The annotated Gulliver's travel", 
         "Jonathan Swift", 
         "9788726039269" 
     };
-    std::cout << std::endl;
-    std::cout << lib;
-
-    std::cout << std::endl;
     std::cout << "Do we have something by Swift? " << std::endl;
     auto res = lib.search("Swift");
     if ( res.has_value() ){

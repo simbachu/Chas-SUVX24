@@ -169,22 +169,28 @@ Order_History::Order_History() {
     }
 }
 
-Order_History& Order_History::operator +=( Product & new_product ){
+Order_History& Order_History::operator +=( Product && new_product ){
     const auto last_item = stockkeeping_units.rbegin();
     int max_key = (*last_item).first;
     stockkeeping_units.emplace(++max_key, std::move(new_product));
+
+    return *this;
 }
 
-Order_History& Order_History::operator +=( Order & new_order ){
+Order_History& Order_History::operator +=( Order && new_order ){
     const auto last_item = orders.rbegin();
     int max_key = (*last_item).first;
     orders.emplace(++max_key, std::move(new_order));
+
+    return *this;
 }
 
-Order_History& Order_History::operator +=( Customer & new_customer ){
+Order_History& Order_History::operator +=( Customer && new_customer ){
     const auto last_item = customers.rbegin();
     int max_key = (*last_item).first;
     customers.emplace(++max_key, std::move(new_customer));
+
+    return *this;
 }
 
 std::ostream& operator << ( std::ostream& os, const Order_History& o_h ){
