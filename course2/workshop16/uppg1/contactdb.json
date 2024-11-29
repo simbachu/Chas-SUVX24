@@ -46,5 +46,13 @@
         "id": 6,
         "last_name": "di Leva",
         "phone": "08-4026000"
+    },
+    {
+        "birth_year": "1939",
+        "email": "",
+        "first_name": "Charles Ingvar",
+        "id": 7,
+        "last_name": "Jonsson",
+        "phone": ""
     }
 ]

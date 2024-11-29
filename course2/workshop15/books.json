@@ -1,13 +1,13 @@
 [
     {
-        "id": "101",
+        "id": 101,
         "title": "C++ Programming",
         "author": "Bjarne Stroustrup",
         "copies": 5,
         "isbn": "0201539926"
     },
     {
-        "id": "102",
+        "id": 102,
         "title": "Clean Code",
         "author": "Robert C. Martin",
         "copies": 3,

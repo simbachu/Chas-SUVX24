@@ -51,6 +51,9 @@ class Order_History {
     Order_History();
 
     friend std::ostream& operator << ( std::ostream&, const Order_History& );
+    Order_History& operator += ( Product& );
+    Order_History& operator += ( Order& );
+    Order_History& operator += ( Customer& );
 
 };
 

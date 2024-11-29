@@ -179,7 +179,7 @@ void Contacts::menu(){
 
     std::getline(std::cin, input_string);
     int option = input_string[0] - '0';
-    while(option < 0 || option > 3 ){
+    while(option < 0 || option > 4 ){
             std::getline(std::cin, input_string);
             option = input_string[0] - '0';
     }
