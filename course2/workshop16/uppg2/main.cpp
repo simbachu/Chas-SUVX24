@@ -2,10 +2,9 @@
 #include <iostream>
 
 int main (){
-    Order_History orders;
-    try{
-        std::cout << orders;
-    } catch (...) {
-        std::cerr << ":O";
+
+    OrderManagment orders;
+    while(orders){
+        orders.menu();
     }
 }

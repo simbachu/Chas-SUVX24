@@ -55,7 +55,23 @@ class Order_History {
     Order_History& operator += ( Order && );
     Order_History& operator += ( Customer && );
 
+    void save_records();
 };
 
+class OrderManagment {
+    private:
+    Order_History db;
+    bool running {true};
+    bool changes_made {false};
+
+    public:
+
+    explicit operator bool() const;
+
+    void menu();
+    void register_customer();
+    void get_customers();
+    void exit();
+};
 
 #endif

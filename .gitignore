@@ -34,3 +34,5 @@
 .vscode/
 .gitignore
 course2/workshop12/tests/catch.hpp
+**/.dbeaver/*
+*.project

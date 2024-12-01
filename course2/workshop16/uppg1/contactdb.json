@@ -54,5 +54,21 @@
         "id": 7,
         "last_name": "Jonsson",
         "phone": ""
+    },
+    {
+        "birth_year": "1996",
+        "email": "oscar.asserlund@chasacademy.se",
+        "first_name": "Oscar",
+        "id": 8,
+        "last_name": "Asserlund",
+        "phone": ""
+    },
+    {
+        "birth_year": "1994",
+        "email": "",
+        "first_name": "Torsten",
+        "id": 9,
+        "last_name": "von Ursus",
+        "phone": ""
     }
 ]

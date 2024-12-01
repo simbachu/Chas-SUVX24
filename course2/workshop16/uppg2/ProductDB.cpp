@@ -171,7 +171,7 @@ Order_History::Order_History() {
 
 Order_History& Order_History::operator +=( Product && new_product ){
     const auto last_item = stockkeeping_units.rbegin();
-    int max_key = (*last_item).first;
+    unsigned max_key = (*last_item).first;
     stockkeeping_units.emplace(++max_key, std::move(new_product));
 
     return *this;
@@ -179,15 +179,19 @@ Order_History& Order_History::operator +=( Product && new_product ){
 
 Order_History& Order_History::operator +=( Order && new_order ){
     const auto last_item = orders.rbegin();
-    int max_key = (*last_item).first;
+    unsigned max_key = (*last_item).first;
     orders.emplace(++max_key, std::move(new_order));
 
     return *this;
 }
 
+void Order_History::save_records(){
+
+}
+
 Order_History& Order_History::operator +=( Customer && new_customer ){
     const auto last_item = customers.rbegin();
-    int max_key = (*last_item).first;
+    unsigned max_key = (*last_item).first;
     customers.emplace(++max_key, std::move(new_customer));
 
     return *this;
@@ -211,13 +215,92 @@ std::ostream& operator << ( std::ostream& os, const Order_History& o_h ){
             std::string name = o_h.stockkeeping_units.at(r.product_id).product_name;
             double price = o_h.stockkeeping_units.at(r.product_id).unit_price;
             unsigned amount = r.amount;
-            std::string row = std::format( "{:30} ${:^5.2f} * {:<4}: ${:8>.2f}\n", name, price, amount, row_total );
+            std::string row = std::format(
+                "{:30} ${:^5.2f} * {:<4}: ${:8>.2f}\n", 
+                name, price, amount, row_total );
             os << row;
             order_total += row_total;
         }
         os << "--------------------" << '\n';
-        std::string total = std::format("Subtotal: {:>5.2f}\nTax: {:>5.2f}\nTotal: {:>5.2f}\n", order_total*0.8, order_total*0.2, order_total);
+        std::string total = std::format(
+            "Subtotal: {:>5.2f}\nTax: {:>5.2f}\nTotal: {:>5.2f}\n", 
+            order_total*0.8, order_total*0.2, order_total);
         os << total << std::endl;
     }
     return os;
+}
+
+OrderManagment::operator bool() const{
+    return running;
+}
+
+void OrderManagment::menu(){
+    std::string input_string {};
+
+    std::cout << " --- MENU: ---  " << '\n';
+    std::cout << " Select mode:" << '\n';
+    std::cout << "1. Register customer" << '\n';
+    std::cout << "2. Customer list" << '\n';
+    std::cout << "0: Exit" << '\n';
+    std::cout << ">>  ";
+
+    std::getline(std::cin, input_string);
+    int option = input_string[0] - '0';
+    while(option < 0 || option > 2 ){
+            std::getline(std::cin, input_string);
+            option = input_string[0] - '0';
+    }
+    switch (option){
+        case 1:
+        register_customer();
+        break;
+        case 2:
+        get_customers();
+        break;
+        default:
+        exit();
+        break;
+    }
+}
+
+void OrderManagment::register_customer(){
+    std::string new_name {};
+    std::string new_email {};
+
+    std::cout << " --- NEW CONTACT ---" << std::endl;
+    std::cout << "Enter full name: ";
+    std::getline(std::cin, new_name);
+
+    std::cout << "Enter email address: ";
+    std::getline(std::cin, new_email);
+
+    std::cout << "Adding record: " << new_name << std::endl;
+    db += Customer {new_name, new_email};
+    changes_made = true;
+}
+
+void OrderManagment::get_customers(){
+
+}
+
+void OrderManagment::exit(){
+    std::string input_string {};
+
+    if (changes_made){
+        std::cout << "You have unsaved changes." << std::endl;        
+        std::cout << "Do you want to save? y/n   >> ";
+
+        while(input_string[0] != 'y' && input_string[0] != 'n' ){
+                std::getline(std::cin, input_string);
+        }
+        switch (input_string[0]){
+            case 'y':
+            db.save_records();
+            break;
+            default:
+            std::cout << "Exiting without saving changes.";
+            break;
+        }
+    }
+    running = false;
 }
