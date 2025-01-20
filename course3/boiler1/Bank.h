@@ -5,35 +5,38 @@
 #include <map>
 #include <mutex>
 #include <thread>
+#include <memory>
 
 class BankAccount {
     private:
-    std::atomic<int> balance = 0;
+    int balance = 0;
+    std::mutex l;
 
     public:
     BankAccount() = default;
     BankAccount( int amount );
-    void deposit ( int amount ) noexcept;
+    void deposit ( int amount );
     void withdraw ( int amount );
-    const int getBalance() const;
+    const int get_balance() const;
 };
 
 class Bank {
-    private:
+    public:
     std::atomic<int> idx = 100;
-    std::map<int, BankAccount> accounts;
+    std::map<int, std::shared_ptr<BankAccount>> accounts;
     std::mutex l_acc;
     std::vector<std::thread> clients;
 
-    public:
     Bank() = default;
     const int register_account (  );
     const BankAccount& get_account( int acc_number ) const;
 
-    void client();
-
     void run();
     void stop();
+};
+
+namespace BankThread{
+    void client(Bank* bank);
 };
 
 #endif
