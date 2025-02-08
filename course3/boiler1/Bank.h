@@ -12,7 +12,6 @@ class BankAccount {
     private:
     int account_number = 0;
     int balance = 0;
-    std::mutex l;
 
     public:
     BankAccount() = default;
@@ -30,7 +29,7 @@ class Customer {
     public:
     Customer( std::string name );
     void register_account ( std::shared_ptr<BankAccount> );
-    std::weak_ptr<BankAccount> get_account();
+    const std::weak_ptr<BankAccount> get_account() const;
 
 };
 
@@ -41,42 +40,51 @@ struct Transaction {
     std::chrono::time_point<std::chrono::system_clock> when = std::chrono::system_clock::now();
 };
 
+enum struct message_type {
+    Success,
+    Missing_Account,
+    Balance_Error
+};
 
 struct LogMessage{
-    
+    message_type msg_t;
+    Transaction t;
+    std::chrono::time_point<std::chrono::system_clock> when = std::chrono::system_clock::now();
 };
 
-class Reporter{
-    public:
-    void log();
-};
+std::ostream& operator << ( std::ostream&, LogMessage );
+
 
 class Bank {
     private:
-    bool done = false;
+    bool taking_orders = true;
+    bool stop_work = false;
 
     public:
-    Reporter logger;
-    std::mutex l_log;
+    std::optional<std::thread> logger_thread;
     std::atomic<int> idx = 100;
     std::vector<Customer> customers;
     std::vector<std::shared_ptr<BankAccount>> accounts;
-    std::mutex l_acc;
+    std::mutex lock;
     std::vector<std::thread> clients;
     std::vector<std::thread> workers;
-    std::condition_variable queue_s;
+    std::condition_variable transaction_available;
+    std::condition_variable log_available;
     std::queue<Transaction> work_queue;
+    std::queue<LogMessage> log_queue;
 
-    Bank() = default;
     const std::shared_ptr<BankAccount> new_account (  );
     const BankAccount& get_account ( int acc_number ) const;
-    const bool running() const;
+    const bool accepts_transactions() const noexcept;
+    const bool has_work() const noexcept;
 
+    void log(LogMessage);
     void run();
     void stop();
 };
 
 namespace BankThread{
+    void logger( Bank* bank );
     void client( Bank* bank );
     void worker( Bank* bank );
 };
