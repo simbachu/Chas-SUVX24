@@ -1,7 +1,7 @@
 # Reflektion Chas Challenge
-Chas Challenge-grupp 2 (Kusten är klar)
-Jennifer Gott
-2025-06-16
+Chas Challenge-grupp 2 (Kusten är klar)  
+Jennifer Gott  
+2025-06-16  
 ## Beskriv hur ditt teams arbete fungerade under Chas Challenge
 Det var väldigt spretigt. Vi valde projekt efter votering i stora gruppen och både jag och Erik kände att som det var definerat för vår subgrupp så var det på det stora hela ganska lite jobb. Det gjorde oss oroliga att vi skulle hamna i liknande problem som tidigare grupparbeten i den här konstellationen där det inte finns jobb att dela upp på fem personer. Och så var det. Det ledde till svåra planeringsproblem och känsla av deltagande i gruppen.
 Vi satte upp ett gruppkontrakt för hur arbetet skulle bedrivas, men efterföljandet var inte bra.
@@ -13,7 +13,7 @@ Vi hade synk-möten varje tisdag och ibland extra möten med *backend* efter der
 ### Vad var din roll och hur påverkade du samarbetet?
 Jag var lite informell *scrum master* på våra tisdagsmöten och såg till att synkmöten blev bokade när de behövdes. Jag deltog också på synkmötena för att vara införstådd på innehållet för att kunna hjälpa till.
 ## Vad hade ni för utmaningar under Chas Challenge?
-### Tekniska
+### Tekniska utmaningar
 Jag upptäckte när vi fick hårdvaran att den PoE-shield vi köpt inte funkade med vår Arduino. En annan Ethernet-sköld som jag införskaffade själv fungerade i första skedet men fick styrka på foten när vi behövde gå till enbart https eftersom den inte hade stöd för det.
 Vår föredragna luftkvalitetssensor försvann från lager mellan vår beställningsinlämning och slutbeställningen, vilket ledde till att vi fick köpa en annan med ett annat interface.
 Temperatursensorn vi först valde hade för stor avvikelse och fick bytas till en annan som vi hade till hands.
@@ -32,16 +32,16 @@ Vi gjorde en ganska bra ansats till en produkt. Den fungerar i stort som vi hade
 ### Vad lärde du dig under arbetet?
 Jättemycket! Jag tycker att jag har en mycket bättre förståelse för hur man ska ta sig an en sån här uppgift i framtiden.
 #### Kunskapsmässigt
-- Skriva hårdvaruabstraktionslager
+- Skriva hårdvaruabstraktionslager:
 Jag ville att vi skulle uppfylla vår testbarhetsambition från projektplanen och gjorde en ansträngning att göra vår kod testbar. Jag ville kunna köra testerna direkt på datorn utan hårdvaran inkopplad, och då behövde jag abstrahera Arduino-funktionerna som `delay()`, `millis()` och objekt som `Wire`.
-- Tillståndshantering i system
+- Tillståndshantering i system:
 Jag kom fram till att vi borde ha olika tillstånd för olika intervall av mätning beroende på tid på dagen, helger, osv. det var en jättespännande utforskning som tyvärr inte kom med i slutprodukten.
 Däremot lade jag till tillstånd för enhetens uppstart för att hantera olika felfall. Exempelvis kan ett fel som timeout från nätverket vara nåt man bara kan vänta ut och försöka igen senare, medan felaktig JWT-login betyder att det bara är att avbryta allt och försätta sig i passivt läge.
-- Hantering av feltillstånd i nätverkskommunikation
+- Hantering av feltillstånd i nätverkskommunikation:
 Syntesen av dessa två blev att jag började utförska enum som returtyper, som t.ex. `EepromError` eller `HttpError`, som man också kan ha en `operator bool` på för att se om returvärdet är ett fel eller inte. Det gjorde genast att koden blev mer uttrycksfull och lättare att resonera om.
-- Typning av hårdvaruspecifika värden
+- Typning av hårdvaruspecifika värden:
 `PinNumber`, `EepromAddress`, `HttpRequest` och liknande typer istället för integraltyper eller strängar. 
-- Verktyg
+- Verktyg:
 PlatformIO, automatiserade tester, att göra en *debug-environment* med mer utskrift än release, att hantera konfigurationer osv. Verkligen jättespännande!
 - Skriva bibliotek
 Jag portade mitt abstraktionslager till ett platformIO-bibliotek vilket var helt nytt för mig.
@@ -49,15 +49,15 @@ Jag portade mitt abstraktionslager till ett platformIO-bibliotek vilket var helt
 Det är jättesvårt att planera nånting på det här planet när kunskaps- och ambitionsnivån skiljer sig så mycket. Vi hade behövt sitta i stor grupp tillsammans mycket mer och mob-programmera istället för att dela upp oss i mindre ansvarsområden. Men omständigheterna i gruppen gjorde detta svårt att realisera, det fanns väldigt lite utrymme för gemensamt arbete.
 Jag tycker att det blir ännu mer ojämt när jag nu efter Chas Challenge känner att jag har lärt mig så himla mycket och fått en väldigt djup insikt i hela verktygskedjan från hårdvara till bibliotek, när som de som hade svårt att hänga med i början inte kan hänga med alls längre.
 Det räcker också inte att bara erbjuda att hjälpa till, de andra gruppmedlemmarna behöver vilja vara med också. Jag fick uppfattningen att de hade gett upp lite innan vi redan hade börjat.
-### Vad jag hade gjort annorlunda
+## Vad jag hade gjort annorlunda
 Om jag hade kunnat hoppa tillbaka till början och göra på mitt sätt så hade jag försökt få med det här:
-#### Rolldefinition
+### Rolldefinition
 Vi borde haft en tydligare rollfördelning med t.ex. produktansvarig för helheten (*product manager*), produktledare för varje leveransområde (*product owner* SUVX, *product owner* FSJX osv.) och ceremoniledare (typ *scrum master*). Nu var vår uppdelning mycket mer *ad hoc*. Det gjorde det för otydligt hur vi skulle utveckla arbetet under projektets gång.
 #### Planering
 - Tydliga *feature*-beskrivningar, skrivna på ett konsekvent sätt (*user story* t.ex.)
 - Använda dessa *feature*-beskrivningar för att definera acceptans-tester
 - Strukturera arbetet kring uppfyllandet av acceptans-testerna
-#### Uppföljning
+### Uppföljning
 Vi borde haft en tydligare uppföljningsstruktur än den vecko-checkin vi hade på tisdagar. Vi borde haft ett löpande arbete med att skapa tydligt avgränsade arbetsuppgifter.
 ## Sammanfattning
 Vårt teams arbete blev spretigt då uppgifterna var få och svåra att fördela; jag försökte ta en samordnande roll och försökte andra leda olika teknikdelar. Tekniskt stötte vi på problem som inkompatibla Ethernet-sköldar, sensorbrist och ett föränderligt backend-API, medan kommunikationen försvårades av distansarbete och ojämlik drivkraft. Jag försökte avlasta gruppen genom parprogrammering, konstruktiv feedback och förankring i projektplanen, men höll samtidigt igen för att ge andra utrymme. 
