@@ -180,6 +180,7 @@ static void route_root(WiFiClient &client) {
   routes.add(HttpRoutes::TEMP_RAW);
   routes.add(HttpRoutes::TEMP_ALERT_MIN);
   routes.add(HttpRoutes::TEMP_ALERT_MAX);
+  routes.add(HttpRoutes::TEMP_ALERT_CLEAR);
   char body[256];
   serializeJson(doc, body, sizeof(body));
   send_json(client, 200, String(body));
@@ -198,6 +199,7 @@ static const RouteEntry ROUTES[] = {
   { HttpRoutes::TEMP_RAW,  "GET",  route_temp_raw },
   { HttpRoutes::TEMP_ALERT_MIN, "POST", nullptr },
   { HttpRoutes::TEMP_ALERT_MAX, "POST", nullptr },
+  { HttpRoutes::TEMP_ALERT_CLEAR, "POST", nullptr },
   { "/",                  "GET",  route_root }
 };
 
@@ -251,6 +253,13 @@ static void handle_request(WiFiClient &client, const String &method, const Strin
             doc["status"] = "ok";
             doc["alert_max"] = v;
             char body[128];
+            serializeJson(doc, body, sizeof(body));
+            send_json(client, 200, String(body));
+          } else if (path == HttpRoutes::TEMP_ALERT_CLEAR) {
+            temp_sensor.clear_alert_violation();
+            StaticJsonDocument<64> doc;
+            doc["status"] = "ok";
+            char body[96];
             serializeJson(doc, body, sizeof(body));
             send_json(client, 200, String(body));
           }

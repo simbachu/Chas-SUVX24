@@ -13,5 +13,6 @@ namespace HttpRoutes {
     constexpr const char* TEMP_RAW = "/temp/raw";
     constexpr const char* TEMP_ALERT_MIN = "/temp/alert/min";
     constexpr const char* TEMP_ALERT_MAX = "/temp/alert/max";
+    constexpr const char* TEMP_ALERT_CLEAR = "/temp/alert/clear";
 }
 
