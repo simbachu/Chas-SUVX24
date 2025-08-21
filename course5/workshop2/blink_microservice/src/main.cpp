@@ -49,6 +49,12 @@ static void discard_http_headers(WiFiClient &client) {
 // Route handling
 static void handle_request(WiFiClient &client, const String &method, const String &path) {
   if (path == HttpRoutes::LED_ON) {
+    if (method != "POST") {
+      char body[96];
+      make_error_json("method not allowed", body, sizeof(body));
+      send_json(client, 405, String(body));
+      return;
+    }
     led.turn_on();
     char body[64];
     auto s = led_state_string();
@@ -57,6 +63,12 @@ static void handle_request(WiFiClient &client, const String &method, const Strin
     return;
   }
   if (path == HttpRoutes::LED_OFF) {
+    if (method != "POST") {
+      char body[96];
+      make_error_json("method not allowed", body, sizeof(body));
+      send_json(client, 405, String(body));
+      return;
+    }
     led.turn_off();
     char body[64];
     auto s = led_state_string();
@@ -65,6 +77,12 @@ static void handle_request(WiFiClient &client, const String &method, const Strin
     return;
   }
   if (path == HttpRoutes::LED_TOGGLE) {
+    if (method != "POST") {
+      char body[96];
+      make_error_json("method not allowed", body, sizeof(body));
+      send_json(client, 405, String(body));
+      return;
+    }
     led.toggle();
     char body[64];
     auto s = led_state_string();
@@ -73,6 +91,12 @@ static void handle_request(WiFiClient &client, const String &method, const Strin
     return;
   }
   if (path == HttpRoutes::LED_STATUS) {
+    if (method != "GET") {
+      char body[96];
+      make_error_json("method not allowed", body, sizeof(body));
+      send_json(client, 405, String(body));
+      return;
+    }
     char body[64];
     make_led_status_json(led_state_string(), body, sizeof(body));
     send_json(client, 200, String(body));
@@ -81,6 +105,12 @@ static void handle_request(WiFiClient &client, const String &method, const Strin
 
   // Optional: root endpoint shows available routes
   if (path == "/") {
+    if (method != "GET") {
+      char body[96];
+      make_error_json("method not allowed", body, sizeof(body));
+      send_json(client, 405, String(body));
+      return;
+    }
     char body[128];
     make_routes_json(HttpRoutes::LED_ON, HttpRoutes::LED_OFF, HttpRoutes::LED_TOGGLE, HttpRoutes::LED_STATUS, body, sizeof(body));
     send_json(client, 200, String(body));
