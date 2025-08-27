@@ -1,4 +1,5 @@
-#pragma once
+#ifndef HTTP_RESPONSE_H
+#define HTTP_RESPONSE_H
 
 #include <stddef.h>
 #include <stdint.h>
@@ -76,3 +77,4 @@ inline void make_routes_json(std::string_view r1, std::string_view r2, std::stri
 }
 
 
+#endif // HTTP_RESPONSE_H

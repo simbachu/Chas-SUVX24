@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEST_LED_H
+#define TEST_LED_H
 
 #include "LedInterface.h"
 
@@ -32,4 +33,4 @@ private:
 	bool state_on_;
 };
 
-
+#endif // TEST_LED_H

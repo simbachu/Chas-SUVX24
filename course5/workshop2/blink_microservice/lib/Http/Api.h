@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef HTTP_API_H
+#define HTTP_API_H
 //! Route constants for the HTTP microservice.
 
 namespace HttpRoutes {
@@ -16,3 +16,4 @@ namespace HttpRoutes {
     constexpr const char* TEMP_ALERT_CLEAR = "/temp/alert/clear";
 }
 
+#endif // HTTP_API_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEMP_HARDWARE_H
+#define TEMP_HARDWARE_H
 
 #include <stdint.h>
 #include "TempInterface.h"
@@ -44,6 +45,6 @@ public:
 	void begin() override {}
 	float read_celsius() override { return 0.0f; }
 };
-#endif
+#endif // ARDUINO
 
-
+#endif // TEMP_HARDWARE_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LED_INTERFACE_H
+#define LED_INTERFACE_H
 
 class LedInterface {
 public:
@@ -9,4 +10,4 @@ public:
 	virtual bool is_on() const = 0;
 };
 
-
+#endif // LED_INTERFACE_H

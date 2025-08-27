@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEMP_INTERFACE_H
+#define TEMP_INTERFACE_H
 
 #include <stdint.h>
 
@@ -9,4 +10,4 @@ public:
 	virtual float read_celsius() = 0;
 };
 
-
+#endif // TEMP_INTERFACE_H

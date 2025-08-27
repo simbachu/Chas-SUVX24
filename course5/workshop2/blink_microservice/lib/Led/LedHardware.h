@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LED_HARDWARE_H
+#define LED_HARDWARE_H
 
 #include <stdint.h>
 #include "LedInterface.h"
@@ -51,3 +52,4 @@ private:
 };
 #endif
 
+#endif // LED_HARDWARE_H

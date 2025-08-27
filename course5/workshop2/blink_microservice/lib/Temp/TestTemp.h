@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEST_TEMP_H
+#define TEST_TEMP_H
 
 #include "TempInterface.h"
 
@@ -12,4 +13,4 @@ private:
 	float current_c_ = 0.0f;
 };
 
-
+#endif // TEST_TEMP_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TEMP_MONITOR_H
+#define TEMP_MONITOR_H
 
 //! Temperature monitoring with inner fast ring (0.5s) and outer aggregated ring (10s).
 //! - Samples raw sensor into inner ring; computes sigma-clipped averages into outer ring.
@@ -167,4 +168,4 @@ private:
 	bool alert_violated_ = false;
 };
 
-
+#endif // TEMP_MONITOR_H
