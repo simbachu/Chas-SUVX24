@@ -1,4 +1,38 @@
-def take_any(options):
+def min(a: any, b: any) -> any:
+    """
+    Returns the minimum of two things that can be compared
+    Precondition:
+      a and b can be compared using <
+    Parameters:
+      a: first thing
+      b: second thing
+    Returns:
+      any: the minimum of the two things
+    """
+    return a if a < b else b
+
+def mean(values: list[float]) -> float:
+    """
+    Returns the mean of a list of numbers (float)
+    Precondition:
+      values is not empty
+    Parameters:
+      values: list of numbers
+    Returns:
+      float: the mean value of the in parameter values
+    Example:
+      --> mean([1, 2, 3])
+        2.0
+      --> mean([1.0, 2.0, 3.0])
+        2.0
+      --> mean([-1, 0, 1])
+        0.0
+      --> mean([NaN, -1, 0])
+        NaN
+    """
+    return float(sum(values)) / len(values)
+
+def take_any(options: list[any]) -> any:
     """
     Returns one of the options, if you are indecisive
     Note:
@@ -19,18 +53,18 @@ def take_any(options):
 
     return random.choice(options)
 
-def ascending(a, b):
+def ascending(a: any, b: any) -> bool:
     """
-    # Sort function that returns True if a should come before b (ascending order)
-    # Parameters:
-    #   a: first element
-    #   b: second element
-    # Returns:
-    #   bool: True if a <= b, False otherwise
+    Sort function that returns True if a should come before b (ascending order)
+    Parameters:
+      a: first element
+      b: second element
+    Returns:
+      bool: True if a <= b, False otherwise
     """
     return a <= b
 
-def descending(a, b):
+def descending(a: any, b: any) -> bool:
     """
     Sort function that returns True if a should come before b (descending order)
     Parameters:
@@ -41,7 +75,7 @@ def descending(a, b):
     """
     return a >= b
 
-def fun_sort(list, additional_sort_functions=[ascending, descending, take_any]):
+def fun_sort(list: list[any], additional_sort_functions: list = [ascending, descending, take_any]) -> list[any]:
     """
     Can't pick a way to sort a list?
     Let's take any.
