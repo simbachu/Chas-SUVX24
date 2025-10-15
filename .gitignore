@@ -36,3 +36,7 @@
 course2/workshop12/tests/catch.hpp
 **/.dbeaver/*
 *.project
+
+# Python
+*.pyc
+**/__pycache__/
