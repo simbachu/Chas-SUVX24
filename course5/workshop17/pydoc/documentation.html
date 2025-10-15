@@ -14,7 +14,7 @@
 <table class="section">
 <tr class="decor functions-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
-    
+
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><dl><dt><a name="-ascending"><strong>ascending</strong></a>(a, b)</dt><dd><span class="code">#&nbsp;Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(ascending&nbsp;order)<br>
 #&nbsp;Parameters:<br>
@@ -22,27 +22,40 @@
 #&nbsp;&nbsp;&nbsp;b:&nbsp;second&nbsp;element<br>
 #&nbsp;Returns:<br>
 #&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;&lt;=&nbsp;b,&nbsp;False&nbsp;otherwise</span></dd></dl>
- <dl><dt><a name="-descending"><strong>descending</strong></a>(a, b)</dt><dd><span class="code">#&nbsp;Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(descending&nbsp;order)<br>
-#&nbsp;Parameters:<br>
-#&nbsp;&nbsp;&nbsp;a:&nbsp;first&nbsp;element<br>
-#&nbsp;&nbsp;&nbsp;b:&nbsp;second&nbsp;element<br>
-#&nbsp;Returns:<br>
-#&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;&gt;=&nbsp;b,&nbsp;False&nbsp;otherwise</span></dd></dl>
+ <dl><dt><a name="-descending"><strong>descending</strong></a>(a, b)</dt><dd><span class="code">Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(descending&nbsp;order)<br>
+Parameters:<br>
+&nbsp;&nbsp;a:&nbsp;first&nbsp;element<br>
+&nbsp;&nbsp;b:&nbsp;second&nbsp;element<br>
+Returns:<br>
+&nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;&gt;=&nbsp;b,&nbsp;False&nbsp;otherwise</span></dd></dl>
  <dl><dt><a name="-fun_sort"><strong>fun_sort</strong></a>(
     list,
-    additional_sort_functions=[&lt;function ascending at 0x0000020AD1BE3880&gt;, &lt;function descending at 0x0000020AD1BE3920&gt;, &lt;function take_any at 0x0000020AD1BE37E0&gt;]
-)</dt><dd><span class="code">#&nbsp;Can't&nbsp;pick&nbsp;a&nbsp;way&nbsp;to&nbsp;sort&nbsp;a&nbsp;list?<br>
-#&nbsp;Let's&nbsp;take&nbsp;any.<br>
-#&nbsp;Uses&nbsp;a&nbsp;list&nbsp;of&nbsp;sort&nbsp;function,&nbsp;then&nbsp;takes&nbsp;any&nbsp;from&nbsp;the&nbsp;list.<br>
-#&nbsp;By&nbsp;default,&nbsp;it&nbsp;picks&nbsp;between&nbsp;acending,&nbsp;descending&nbsp;and&nbsp;iterated&nbsp;take_any.<br>
-#&nbsp;Parameters:<br>
-#&nbsp;&nbsp;&nbsp;list:&nbsp;list&nbsp;of&nbsp;any<br>
-#&nbsp;&nbsp;&nbsp;additional_sort_function:&nbsp;function&nbsp;that&nbsp;takes&nbsp;two&nbsp;arguments&nbsp;and&nbsp;returns&nbsp;a&nbsp;boolean<br>
-#&nbsp;Returns:<br>
-#&nbsp;&nbsp;&nbsp;list<br>
-#&nbsp;Example:<br>
-#&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-fun_sort">fun_sort</a>([3,&nbsp;1,&nbsp;4,&nbsp;1,&nbsp;5])<br>
-#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;1,&nbsp;3,&nbsp;4,&nbsp;5]&nbsp;&nbsp;#&nbsp;or&nbsp;[5,&nbsp;4,&nbsp;3,&nbsp;1,&nbsp;1]&nbsp;or&nbsp;some&nbsp;random&nbsp;arrangement</span></dd></dl>
- <dl><dt><a name="-take_any"><strong>take_any</strong></a>(options)</dt></dl>
+    additional_sort_functions=[&lt;function ascending at 0x0000028E313C3880&gt;, &lt;function descending at 0x0000028E313C3920&gt;, &lt;function take_any at 0x0000028E313C37E0&gt;]
+)</dt><dd><span class="code">Can't&nbsp;pick&nbsp;a&nbsp;way&nbsp;to&nbsp;sort&nbsp;a&nbsp;list?<br>
+Let's&nbsp;take&nbsp;any.<br>
+Uses&nbsp;a&nbsp;list&nbsp;of&nbsp;sort&nbsp;function,&nbsp;then&nbsp;takes&nbsp;any&nbsp;from&nbsp;the&nbsp;list.<br>
+By&nbsp;default,&nbsp;it&nbsp;picks&nbsp;between&nbsp;acending,&nbsp;descending&nbsp;and&nbsp;iterated&nbsp;take_any.<br>
+Parameters:<br>
+&nbsp;&nbsp;list:&nbsp;list&nbsp;of&nbsp;any<br>
+&nbsp;&nbsp;additional_sort_function:&nbsp;function&nbsp;that&nbsp;takes&nbsp;two&nbsp;arguments&nbsp;and&nbsp;returns&nbsp;a&nbsp;boolean<br>
+Returns:<br>
+&nbsp;&nbsp;list<br>
+Example:<br>
+&nbsp;&nbsp;--&gt;&nbsp;<a href="#-fun_sort">fun_sort</a>([3,&nbsp;1,&nbsp;4,&nbsp;1,&nbsp;5])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;1,&nbsp;3,&nbsp;4,&nbsp;5]&nbsp;&nbsp;#&nbsp;or&nbsp;[5,&nbsp;4,&nbsp;3,&nbsp;1,&nbsp;1]&nbsp;or&nbsp;some&nbsp;random&nbsp;arrangement</span></dd></dl>
+ <dl><dt><a name="-take_any"><strong>take_any</strong></a>(options)</dt><dd><span class="code">Returns&nbsp;one&nbsp;of&nbsp;the&nbsp;options,&nbsp;if&nbsp;you&nbsp;are&nbsp;indecisive<br>
+Note:<br>
+&nbsp;&nbsp;Your&nbsp;CPU&nbsp;branch&nbsp;predictor&nbsp;will&nbsp;love&nbsp;you&nbsp;for&nbsp;this<br>
+Parameters:<br>
+&nbsp;&nbsp;options:&nbsp;list&nbsp;of&nbsp;any<br>
+Returns:<br>
+&nbsp;&nbsp;any<br>
+Example:<br>
+&nbsp;&nbsp;--&gt;&nbsp;<a href="#-take_any">take_any</a>([1,&nbsp;2,&nbsp;3])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2<br>
+&nbsp;&nbsp;--&gt;&nbsp;<a href="#-take_any">take_any</a>(['a',&nbsp;'b',&nbsp;'c'])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'b'<br>
+&nbsp;&nbsp;--&gt;&nbsp;<a href="#-take_any">take_any</a>([True,&nbsp;False])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True</span></dd></dl>
 </td></tr></table>
 </body></html>
