@@ -1,0 +1,15 @@
+{
+  "name": "jsdoc-documentation",
+  "version": "1.0.0",
+  "description": "JSDoc documentation project",
+  "main": "documentation.js",
+  "scripts": {
+    "docs": "jsdoc documentation.js"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2"
+  },
+  "keywords": ["jsdoc", "documentation"],
+  "author": "",
+  "license": "ISC"
+}
