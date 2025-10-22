@@ -12,45 +12,127 @@
     <p></p>
 <p>
 <table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="math.html">math</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="typing.html#Protocol">typing.Protocol</a>(<a href="typing.html#Generic">typing.Generic</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="documentation.html#Comparable">Comparable</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Comparable">class <strong>Comparable</strong></a>(<a href="typing.html#Protocol">typing.Protocol</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Comparable">Comparable</a>(*args,&nbsp;**kwargs)<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="documentation.html#Comparable">Comparable</a></dd>
+<dd><a href="typing.html#Protocol">typing.Protocol</a></dd>
+<dd><a href="typing.html#Generic">typing.Generic</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Comparable-__ge__"><strong>__ge__</strong></a>(self, other: Any) -&gt; bool</dt><dd><span class="code">Return&nbsp;self&gt;=value.</span></dd></dl>
+
+<dl><dt><a name="Comparable-__init__"><strong>__init__</strong></a> = _no_init_or_replace_init(self, *args, **kwargs)<span class="grey"><span class="heading-text"> from <a href="typing.html">typing</a></span></span></dt></dl>
+
+<dl><dt><a name="Comparable-__le__"><strong>__le__</strong></a>(self, other: Any) -&gt; bool</dt><dd><span class="code">Return&nbsp;self&lt;=value.</span></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Comparable-__subclasshook__"><strong>__subclasshook__</strong></a> = _proto_hook(other)<span class="grey"><span class="heading-text"> from typing</span></span></dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset()</dl>
+
+<dl><dt><strong>__annotations__</strong> = {}</dl>
+
+<dl><dt><strong>__parameters__</strong> = ()</dl>
+
+<dl><dt><strong>__protocol_attrs__</strong> = {'__ge__', '__le__'}</dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Protocol">typing.Protocol</a>:<br>
+<dl><dt><a name="Comparable-__init_subclass__"><strong>__init_subclass__</strong></a>(*args, **kwargs)</dt><dd><span class="code">Function&nbsp;to&nbsp;initialize&nbsp;subclasses.</span></dd></dl>
+
+<hr>
+Class methods inherited from <a href="typing.html#Generic">typing.Generic</a>:<br>
+<dl><dt><a name="Comparable-__class_getitem__"><strong>__class_getitem__</strong></a>(...)</dt><dd><span class="code">Parameterizes&nbsp;a&nbsp;generic&nbsp;class.<br>
+&nbsp;<br>
+At&nbsp;least,&nbsp;parameterizing&nbsp;a&nbsp;generic&nbsp;class&nbsp;is&nbsp;the&nbsp;*main*&nbsp;thing&nbsp;this<br>
+method&nbsp;does.&nbsp;For&nbsp;example,&nbsp;for&nbsp;some&nbsp;generic&nbsp;class&nbsp;`Foo`,&nbsp;this&nbsp;is&nbsp;called<br>
+when&nbsp;we&nbsp;do&nbsp;`Foo[int]`&nbsp;-&nbsp;there,&nbsp;with&nbsp;`cls=Foo`&nbsp;and&nbsp;`params=int`.<br>
+&nbsp;<br>
+However,&nbsp;note&nbsp;that&nbsp;this&nbsp;method&nbsp;is&nbsp;also&nbsp;called&nbsp;when&nbsp;defining&nbsp;generic<br>
+classes&nbsp;in&nbsp;the&nbsp;first&nbsp;place&nbsp;with&nbsp;`class&nbsp;Foo[T]:&nbsp;...`.</span></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table class="section">
 <tr class="decor functions-decor heading-text">
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-ascending"><strong>ascending</strong></a>(a: &lt;built-in function any&gt;, b: &lt;built-in function any&gt;) -&gt; bool</dt><dd><span class="code">Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(ascending&nbsp;order)<br>
-Parameters:<br>
-&nbsp;&nbsp;a:&nbsp;first&nbsp;element<br>
-&nbsp;&nbsp;b:&nbsp;second&nbsp;element<br>
+<td class="singlecolumn"><dl><dt><a name="-ascending"><strong>ascending</strong></a>(a: documentation.Comparable, b: documentation.Comparable) -&gt; bool</dt><dd><span class="code">Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(ascending&nbsp;order)<br>
+Args:<br>
+&nbsp;&nbsp;<a href="#Comparable">Comparable</a>&nbsp;a:&nbsp;first&nbsp;comparable&nbsp;element<br>
+&nbsp;&nbsp;<a href="#Comparable">Comparable</a>&nbsp;b:&nbsp;second&nbsp;comparable&nbsp;element<br>
 Returns:<br>
 &nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;&lt;=&nbsp;b,&nbsp;False&nbsp;otherwise</span></dd></dl>
- <dl><dt><a name="-descending"><strong>descending</strong></a>(a: &lt;built-in function any&gt;, b: &lt;built-in function any&gt;) -&gt; bool</dt><dd><span class="code">Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(descending&nbsp;order)<br>
-Parameters:<br>
-&nbsp;&nbsp;a:&nbsp;first&nbsp;element<br>
-&nbsp;&nbsp;b:&nbsp;second&nbsp;element<br>
+ <dl><dt><a name="-descending"><strong>descending</strong></a>(a: documentation.Comparable, b: documentation.Comparable) -&gt; bool</dt><dd><span class="code">Sort&nbsp;function&nbsp;that&nbsp;returns&nbsp;True&nbsp;if&nbsp;a&nbsp;should&nbsp;come&nbsp;before&nbsp;b&nbsp;(descending&nbsp;order)<br>
+Args:<br>
+&nbsp;&nbsp;<a href="#Comparable">Comparable</a>&nbsp;a:&nbsp;first&nbsp;comparable&nbsp;element<br>
+&nbsp;&nbsp;<a href="#Comparable">Comparable</a>&nbsp;b:&nbsp;second&nbsp;comparable&nbsp;element<br>
 Returns:<br>
 &nbsp;&nbsp;bool:&nbsp;True&nbsp;if&nbsp;a&nbsp;&gt;=&nbsp;b,&nbsp;False&nbsp;otherwise</span></dd></dl>
  <dl><dt><a name="-fun_sort"><strong>fun_sort</strong></a>(
-    list: list[any],
-    additional_sort_functions: list = [&lt;function ascending at 0x000001E2BB133A60&gt;, &lt;function descending at 0x000001E2BB133B00&gt;, &lt;function take_any at 0x000001E2BB1339C0&gt;]
-) -&gt; list[any]</dt><dd><span class="code">Can't&nbsp;pick&nbsp;a&nbsp;way&nbsp;to&nbsp;sort&nbsp;a&nbsp;list?<br>
+    items: list[~T],
+    additional_sort_functions: Optional[Sequence[Callable[..., Any]]] = None
+) -&gt; list[~T]</dt><dd><span class="code">Can't&nbsp;pick&nbsp;a&nbsp;way&nbsp;to&nbsp;sort&nbsp;a&nbsp;list?<br>
 Let's&nbsp;take&nbsp;any.<br>
 Uses&nbsp;a&nbsp;list&nbsp;of&nbsp;sort&nbsp;function,&nbsp;then&nbsp;takes&nbsp;any&nbsp;from&nbsp;the&nbsp;list.<br>
 By&nbsp;default,&nbsp;it&nbsp;picks&nbsp;between&nbsp;acending,&nbsp;descending&nbsp;and&nbsp;iterated&nbsp;take_any.<br>
-Parameters:<br>
-&nbsp;&nbsp;list:&nbsp;list&nbsp;of&nbsp;any<br>
-&nbsp;&nbsp;additional_sort_function:&nbsp;function&nbsp;that&nbsp;takes&nbsp;two&nbsp;arguments&nbsp;and&nbsp;returns&nbsp;a&nbsp;boolean<br>
+Args:<br>
+&nbsp;&nbsp;List[T]&nbsp;items:&nbsp;list&nbsp;of&nbsp;items&nbsp;to&nbsp;sort<br>
+&nbsp;&nbsp;Sequence[Callable[...,&nbsp;Any]]&nbsp;|&nbsp;None&nbsp;additional_sort_functions:&nbsp;mix&nbsp;of&nbsp;comparator&nbsp;functions&nbsp;(Callable[[T,&nbsp;T],&nbsp;bool])&nbsp;and&nbsp;list&nbsp;transformers&nbsp;(Callable[[Sequence[T]],&nbsp;Sequence[T]]).&nbsp;Defaults&nbsp;to&nbsp;(ascending,&nbsp;descending,&nbsp;take_any)<br>
 Returns:<br>
-&nbsp;&nbsp;list<br>
-Example:<br>
+&nbsp;&nbsp;List[Any]:&nbsp;the&nbsp;sorted&nbsp;list<br>
+Examples:<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-fun_sort">fun_sort</a>([3,&nbsp;1,&nbsp;4,&nbsp;1,&nbsp;5])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[1,&nbsp;1,&nbsp;3,&nbsp;4,&nbsp;5]&nbsp;&nbsp;#&nbsp;or&nbsp;[5,&nbsp;4,&nbsp;3,&nbsp;1,&nbsp;1]&nbsp;or&nbsp;some&nbsp;random&nbsp;arrangement</span></dd></dl>
- <dl><dt><a name="-mean"><strong>mean</strong></a>(values: list[float]) -&gt; float</dt><dd><span class="code">Returns&nbsp;the&nbsp;mean&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;numbers&nbsp;(float)<br>
+ <dl><dt><a name="-mean"><strong>mean</strong></a>(values: list[numbers.Real]) -&gt; float</dt><dd><span class="code">Returns&nbsp;the&nbsp;mean&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;numbers&nbsp;(Real),&nbsp;trimming&nbsp;NaN&nbsp;values&nbsp;from&nbsp;the&nbsp;list<br>
 Precondition:<br>
 &nbsp;&nbsp;values&nbsp;is&nbsp;not&nbsp;empty<br>
-Parameters:<br>
-&nbsp;&nbsp;values:&nbsp;list&nbsp;of&nbsp;numbers<br>
+Args:<br>
+&nbsp;&nbsp;List[Real]&nbsp;values:&nbsp;list&nbsp;of&nbsp;numbers<br>
 Returns:<br>
-&nbsp;&nbsp;float:&nbsp;the&nbsp;mean&nbsp;value&nbsp;of&nbsp;the&nbsp;in&nbsp;parameter&nbsp;values<br>
-Example:<br>
+&nbsp;&nbsp;float:&nbsp;the&nbsp;mean&nbsp;value&nbsp;of&nbsp;the&nbsp;in&nbsp;argument&nbsp;values<br>
+Examples:<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-mean">mean</a>([1,&nbsp;2,&nbsp;3])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;2.0<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-mean">mean</a>([1.0,&nbsp;2.0,&nbsp;3.0])<br>
@@ -58,28 +140,55 @@ Example:<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-mean">mean</a>([-1,&nbsp;0,&nbsp;1])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;0.0<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-mean">mean</a>([NaN,&nbsp;-1,&nbsp;0])<br>
-&nbsp;&nbsp;&nbsp;&nbsp;NaN</span></dd></dl>
- <dl><dt><a name="-min"><strong>min</strong></a>(a: &lt;built-in function any&gt;, b: &lt;built-in function any&gt;) -&gt; &lt;built-in function any&gt;</dt><dd><span class="code">Returns&nbsp;the&nbsp;minimum&nbsp;of&nbsp;two&nbsp;things&nbsp;that&nbsp;can&nbsp;be&nbsp;compared<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-0.5</span></dd></dl>
+ <dl><dt><a name="-min"><strong>min</strong></a>(a: Any, b: Any) -&gt; Any</dt><dd><span class="code">Returns&nbsp;the&nbsp;minimum&nbsp;of&nbsp;two&nbsp;things&nbsp;that&nbsp;can&nbsp;be&nbsp;compared<br>
 Precondition:<br>
 &nbsp;&nbsp;a&nbsp;and&nbsp;b&nbsp;can&nbsp;be&nbsp;compared&nbsp;using&nbsp;&lt;<br>
-Parameters:<br>
-&nbsp;&nbsp;a:&nbsp;first&nbsp;thing<br>
-&nbsp;&nbsp;b:&nbsp;second&nbsp;thing<br>
+Args:<br>
+&nbsp;&nbsp;Any&nbsp;a:&nbsp;first&nbsp;thing<br>
+&nbsp;&nbsp;Any&nbsp;b:&nbsp;second&nbsp;thing<br>
 Returns:<br>
-&nbsp;&nbsp;any:&nbsp;the&nbsp;minimum&nbsp;of&nbsp;the&nbsp;two&nbsp;things</span></dd></dl>
- <dl><dt><a name="-take_any"><strong>take_any</strong></a>(options: list[any]) -&gt; &lt;built-in function any&gt;</dt><dd><span class="code">Returns&nbsp;one&nbsp;of&nbsp;the&nbsp;options,&nbsp;if&nbsp;you&nbsp;are&nbsp;indecisive<br>
+&nbsp;&nbsp;Any:&nbsp;the&nbsp;minimum&nbsp;of&nbsp;the&nbsp;two&nbsp;things</span></dd></dl>
+ <dl><dt><a name="-pow"><strong>pow</strong></a>(base: numbers.Real, exponent: numbers.Real) -&gt; numbers.Real</dt><dd><span class="code">Returns&nbsp;the&nbsp;power&nbsp;of&nbsp;a&nbsp;base&nbsp;to&nbsp;an&nbsp;exponent<br>
+Raises:<br>
+&nbsp;&nbsp;OverflowError:&nbsp;if&nbsp;the&nbsp;result&nbsp;does&nbsp;not&nbsp;fit&nbsp;in&nbsp;INT_MAX&nbsp;and&nbsp;INT_MIN<br>
+Args:<br>
+&nbsp;&nbsp;Real&nbsp;base:&nbsp;the&nbsp;base<br>
+&nbsp;&nbsp;Real&nbsp;exponent:&nbsp;the&nbsp;exponent<br>
+Returns:<br>
+&nbsp;&nbsp;Real:&nbsp;the&nbsp;power&nbsp;of&nbsp;the&nbsp;base&nbsp;to&nbsp;the&nbsp;exponent<br>
+Examples:<br>
+&nbsp;&nbsp;--&gt;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pow">pow</a>(2,&nbsp;3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch&nbsp;OverflowError:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Result&nbsp;does&nbsp;not&nbsp;fit&nbsp;in&nbsp;INT_MAX&nbsp;and&nbsp;INT_MIN")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8<br>
+&nbsp;&nbsp;--&gt;&nbsp;try:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#-pow">pow</a>(2,&nbsp;1000)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch&nbsp;OverflowError:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Result&nbsp;does&nbsp;not&nbsp;fit&nbsp;in&nbsp;INT_MAX&nbsp;and&nbsp;INT_MIN")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Result&nbsp;does&nbsp;not&nbsp;fit&nbsp;in&nbsp;INT_MAX&nbsp;and&nbsp;INT_MIN</span></dd></dl>
+ <dl><dt><a name="-take_any"><strong>take_any</strong></a>(options: Sequence[~T]) -&gt; ~T</dt><dd><span class="code">Gives&nbsp;one&nbsp;of&nbsp;the&nbsp;options&nbsp;in&nbsp;the&nbsp;list.<br>
 Note:<br>
-&nbsp;&nbsp;Your&nbsp;CPU&nbsp;branch&nbsp;predictor&nbsp;will&nbsp;love&nbsp;you&nbsp;for&nbsp;this<br>
-Parameters:<br>
-&nbsp;&nbsp;options:&nbsp;list&nbsp;of&nbsp;any<br>
+&nbsp;&nbsp;Your&nbsp;CPU&nbsp;branch&nbsp;predictor&nbsp;will&nbsp;love&nbsp;you&nbsp;for&nbsp;this&nbsp;if&nbsp;you&nbsp;use&nbsp;this&nbsp;for&nbsp;branching.<br>
+Args:<br>
+&nbsp;&nbsp;Sequence[T]&nbsp;options:&nbsp;non-empty&nbsp;sequence&nbsp;of&nbsp;items&nbsp;of&nbsp;the&nbsp;same&nbsp;type<br>
 Returns:<br>
-&nbsp;&nbsp;any<br>
-Example:<br>
+&nbsp;&nbsp;T:&nbsp;one&nbsp;of&nbsp;the&nbsp;items&nbsp;in&nbsp;the&nbsp;options&nbsp;sequence<br>
+Examples:<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-take_any">take_any</a>([1,&nbsp;2,&nbsp;3])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;2<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-take_any">take_any</a>(['a',&nbsp;'b',&nbsp;'c'])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;'b'<br>
 &nbsp;&nbsp;--&gt;&nbsp;<a href="#-take_any">take_any</a>([True,&nbsp;False])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;True</span></dd></dl>
-</td></tr></table>
+</td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>Callable</strong> = typing.Callable<br>
+<strong>Sequence</strong> = typing.Sequence<br>
+<strong>T</strong> = ~T</td></tr></table>
 </body></html>
