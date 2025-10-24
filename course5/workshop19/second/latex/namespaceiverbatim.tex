@@ -1,0 +1,64 @@
+\doxysection{iverbatim Namespace Reference}
+\hypertarget{namespaceiverbatim}{}\label{namespaceiverbatim}\index{iverbatim@{iverbatim}}
+
+
+Usage reference and examples for \`{}intmath.py\`{} (Google style).  
+
+
+
+
+\doxysubsection{Detailed Description}
+Usage reference and examples for \`{}intmath.py\`{} (Google style). 
+
+Overview\+: Concise usage notes for functions in \`{}intmath.py\`{}. Includes args, returns, potential exceptions to consider, and practical examples.
+
+Functions -\/-\/-\/-\/-\/-\/-\/-\/-\/
+
+isprime(n) Args\+: n (int)\+: Candidate integer. Returns\+: bool\+: True if prime, else False. Raises\+: Type\+Error\+: If \`{}n\`{} is not int-\/like.
+
+nextprime(n) Args\+: n (int)\+: Lower bound. Returns\+: int\+: Smallest prime strictly greater than \`{}n\`{} (special cases for n\texorpdfstring{$<$}{<}=1). Raises\+: Recursion\+Error\+: For extremely large \`{}n\`{} due to recursion. Type\+Error\+: If inputs are not ints.
+
+primefactors(n) Args\+: n (int)\+: Integer to factor (n\texorpdfstring{$>$}{>}1 recommended). Returns\+: list\mbox{[}int\mbox{]}\+: Prime factors with multiplicity. \`{}n\texorpdfstring{$<$}{<}=1\`{} yields empty list. Raises\+: Type\+Error\+: If \`{}n\`{} is not an int.
+
+power(c, n) Args\+: c (int\texorpdfstring{$\vert$}{|}float)\+: Base. n (Any)\+: Exponent. If non-\/int, uses floating math.\+pow. Returns\+: int\texorpdfstring{$\vert$}{|}float\+: c\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}n. Supports negative and zero integer exponents. Raises\+: Type\+Error\+: If types are unsupported by \`{}math.pow\`{} or integer recursion. Zero\+Division\+Error\+: When \`{}c==0\`{} and \`{}n\texorpdfstring{$<$}{<}0\`{} (division by zero).
+
+factorial(n) Args\+: n (int)\+: Non-\/negative integer. Returns\+: int\texorpdfstring{$\vert$}{|}\+None\+: n!; returns None for n\texorpdfstring{$<$}{<}0. Raises\+: Recursion\+Error\+: For very large n (\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$>$}{>}950) due to recursion depth. Type\+Error\+: If \`{}n\`{} is not an int.
+
+fibbonacci(n) Args\+: n (int)\+: 1-\/indexed position (1-\/\texorpdfstring{$>$}{>}0, 2-\/\texorpdfstring{$>$}{>}1). Returns\+: int\texorpdfstring{$\vert$}{|}\+None\+: n-\/th Fibonacci; None for n\texorpdfstring{$<$}{<}0. Raises\+: Recursion\+Error\+: For large n (\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$>$}{>}950) due to recursion depth. Type\+Error\+: If \`{}n\`{} is not an int.
+
+combination(n, k) Args\+: n (int)\+: Number of items. k (int)\+: Chosen items. Returns\+: int\texorpdfstring{$\vert$}{|}\+None\+: Binomial coefficient; returns 1 for base cases. For invalid domains (e.\+g., k\texorpdfstring{$>$}{>}n, negatives), code may return None. Raises\+: Recursion\+Error\+: For large inputs due to deep recursion. Type\+Error\+: If \`{}n\`{}/\`{}k\`{} are not ints. BUG\+: Invalid domains (\`{}n\texorpdfstring{$<$}{<}0\`{}, \`{}k\texorpdfstring{$<$}{<}0\`{}, or \`{}k\texorpdfstring{$>$}{>}n\`{}) are not validated in the current implementation; e.\+g., \`{}combination(-\/1, 2)\`{} returns an int instead of \`{}\+None\`{}.
+
+Examples -\/-\/-\/-\/-\/-\/-\/-\/
+
+Basic usage\+: \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} from intmath import isprime, nextprime, primefactors, power, factorial, fibbonacci, combination \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} isprime(29) True \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} nextprime(29) 31 \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} primefactors(360) \mbox{[}2, 2, 2, 3, 3, 5\mbox{]}
+
+\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} power(2, 10) 1024 \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} round(power(2.\+0, 0.\+5), 10) == round(2.\+0 \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} 0.\+5, 10) True
+
+\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} factorial(0) 1 \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} factorial(5) 120
+
+\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} fibbonacci(1) 0 \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} fibbonacci(2) 1
+
+\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} combination(5, 2) 10
+
+Handling invalid arguments that yield None (not exceptions)\+: \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} from intmath import factorial, fibbonacci, combination \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} factorial(-\/1) is None True \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} fibbonacci(-\/3) is None True \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} combination(-\/1, 2) is None True
+
+Catching potential exceptions (types, recursion, zero division)\+: \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} from intmath import power, nextprime, factorial, fibbonacci, combination
+
+\# Type errors for unsupported inputs \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} power("{}2"{}, 10) \# doctest\+: +IGNORE\+\_\+\+EXCEPTION\+\_\+\+DETAIL Traceback (most recent call last)\+: ... Type\+Error\+: ...
+
+\# Zero division when base is zero and exponent negative \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} power(0, -\/1) Traceback (most recent call last)\+: ... Zero\+Division\+Error\+: division by zero
+
+\# Recursion risks for very large n (Python default limit \texorpdfstring{$\sim$}{\string~}1000) \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} factorial(2000) \# doctest\+: +SKIP Traceback (most recent call last)\+: ... Recursion\+Error\+: ...
+
+\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} fibbonacci(2000) \# doctest\+: +SKIP Traceback (most recent call last)\+: ... Recursion\+Error\+: ...
+
+\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} combination(2000, 1000) \# doctest\+: +SKIP Traceback (most recent call last)\+: ... Recursion\+Error\+: ...
+
+\# nextprime rarely hits recursion limits, but catch defensively if using huge n \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} nextprime(10\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}12) \# doctest\+: +SKIP 1000000000039
+
+When to catch exceptions\+:
+\begin{DoxyItemize}
+\item Type\+Error\+: User inputs or deserialized data may be non-\/numeric.
+\item Zero\+Division\+Error\+: Guard power(0, negative); validate before calling.
+\item Recursion\+Error\+: For untrusted or very large n in factorial, fibbonacci, and combination (and rarely nextprime). Prefer iterative approaches or validate bounds pre-\/call.  
+\end{DoxyItemize}

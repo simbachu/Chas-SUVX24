@@ -1,0 +1,169 @@
+\doxysection{ttinyed.\+TTinyed\+App Class Reference}
+\hypertarget{classttinyed_1_1_t_tinyed_app}{}\label{classttinyed_1_1_t_tinyed_app}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_ab54a4b8ab05417cdf31c4388250aedc8}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_aba60002a32aecc9b9a8581fcaa62edc3}{name}} = \textquotesingle{}ttinyed\textquotesingle{}
+\item 
+dict \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_aa9247af666403cbdcba8b6f1413ad1bb}{config}} = \{\}
+\item 
+\mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_a3476b40652f3f8d4dc154a1b5d7c1ade}{os}} = platform.\+system()
+\item 
+dict \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_a957b3fb73d1f1f8e04aecd1e8e8c93af}{conf}} = self.\+config\mbox{[}self.\+os\mbox{]}
+\item 
+\mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_ae03d72232e86917920513d7f5fd0bc6c}{cwd}} = os.\+getcwd()
+\item 
+dict \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_ad69147b7f54ecf2e0ad6c58939896958}{fontsize}} = self.\+conf\mbox{[}\textquotesingle{}fontsize\textquotesingle{}\mbox{]}
+\item 
+str \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_a06c57db03d6de4395939ff861f3d1ff0}{fontfamily}} = "{}Tk\+Text\+Font"{}
+\item 
+list \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_a4364f69dde42da68e925a8b2a0fa5bf9}{ftypes}} = \mbox{[}("{}Text Files"{},"{}\texorpdfstring{$\ast$}{*}.txt"{}), ("{}Python"{},"{}\texorpdfstring{$\ast$}{*}.py"{}), ("{}Markdown"{},"{}\texorpdfstring{$\ast$}{*}.md"{}), ("{}Any"{}, "{}\texorpdfstring{$\ast$}{*}"{})\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{classttinyed_1_1_t_tinyed_app_a2cb0e77669028d6b6100a54a76ddf589}{nofile\+Opened\+String}} = \textquotesingle{}New File\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00022}{22}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classttinyed_1_1_t_tinyed_app_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classttinyed_1_1_t_tinyed_app_ab54a4b8ab05417cdf31c4388250aedc8}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_ab54a4b8ab05417cdf31c4388250aedc8} 
+ttinyed.\+TTinyed\+App.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00024}{24}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{def\ }\_\_init\_\_(self): }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ self.name\ =\ \textcolor{stringliteral}{'ttinyed'} }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ self.config\ =\ \{\} }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{with}\ open(\textcolor{stringliteral}{'config.json'})\ \textcolor{keyword}{as}\ fh: }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ self.config\ =\ json.load(fh) }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ self.os\ =\ platform.system() }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ self.conf\ =\ self.config[self.os] }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ self.cwd\ =\ cwd\ =\ os.getcwd() }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ self.fontsize\ =\ self.conf[\textcolor{stringliteral}{'fontsize'}] }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ self.fontfamily\ =\ \textcolor{stringliteral}{"{}TkTextFont"{}} }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ self.ftypes\ =\ [(\textcolor{stringliteral}{"{}Text\ Files"{}},\textcolor{stringliteral}{"{}*.txt"{}}),\ (\textcolor{stringliteral}{"{}Python"{}},\textcolor{stringliteral}{"{}*.py"{}}),\ \ (\textcolor{stringliteral}{"{}Markdown"{}},\textcolor{stringliteral}{"{}*.md"{}}),\ (\textcolor{stringliteral}{"{}Any"{}},\ \textcolor{stringliteral}{"{}*"{}})] }
+\DoxyCodeLine{00035\  }
+
+\end{DoxyCode}
+
+
+\label{doc-variable-members}
+\Hypertarget{classttinyed_1_1_t_tinyed_app_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classttinyed_1_1_t_tinyed_app_a957b3fb73d1f1f8e04aecd1e8e8c93af}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!conf@{conf}}
+\index{conf@{conf}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{conf}{conf}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_a957b3fb73d1f1f8e04aecd1e8e8c93af} 
+dict ttinyed.\+TTinyed\+App.\+conf = self.\+config\mbox{[}self.\+os\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00030}{30}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_aa9247af666403cbdcba8b6f1413ad1bb}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!config@{config}}
+\index{config@{config}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_aa9247af666403cbdcba8b6f1413ad1bb} 
+dict ttinyed.\+TTinyed\+App.\+config = \{\}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00026}{26}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_ae03d72232e86917920513d7f5fd0bc6c}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!cwd@{cwd}}
+\index{cwd@{cwd}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{cwd}{cwd}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_ae03d72232e86917920513d7f5fd0bc6c} 
+ttinyed.\+TTinyed\+App.\+cwd = os.\+getcwd()}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00031}{31}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_a06c57db03d6de4395939ff861f3d1ff0}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!fontfamily@{fontfamily}}
+\index{fontfamily@{fontfamily}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{fontfamily}{fontfamily}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_a06c57db03d6de4395939ff861f3d1ff0} 
+str ttinyed.\+TTinyed\+App.\+fontfamily = "{}Tk\+Text\+Font"{}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00033}{33}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_ad69147b7f54ecf2e0ad6c58939896958}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!fontsize@{fontsize}}
+\index{fontsize@{fontsize}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{fontsize}{fontsize}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_ad69147b7f54ecf2e0ad6c58939896958} 
+dict ttinyed.\+TTinyed\+App.\+fontsize = self.\+conf\mbox{[}\textquotesingle{}fontsize\textquotesingle{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00032}{32}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_a4364f69dde42da68e925a8b2a0fa5bf9}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!ftypes@{ftypes}}
+\index{ftypes@{ftypes}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{ftypes}{ftypes}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_a4364f69dde42da68e925a8b2a0fa5bf9} 
+list ttinyed.\+TTinyed\+App.\+ftypes = \mbox{[}("{}Text Files"{},"{}\texorpdfstring{$\ast$}{*}.txt"{}), ("{}Python"{},"{}\texorpdfstring{$\ast$}{*}.py"{}), ("{}Markdown"{},"{}\texorpdfstring{$\ast$}{*}.md"{}), ("{}Any"{}, "{}\texorpdfstring{$\ast$}{*}"{})\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00034}{34}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_aba60002a32aecc9b9a8581fcaa62edc3}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!name@{name}}
+\index{name@{name}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_aba60002a32aecc9b9a8581fcaa62edc3} 
+str ttinyed.\+TTinyed\+App.\+name = \textquotesingle{}ttinyed\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00025}{25}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_a2cb0e77669028d6b6100a54a76ddf589}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!nofileOpenedString@{nofileOpenedString}}
+\index{nofileOpenedString@{nofileOpenedString}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{nofileOpenedString}{nofileOpenedString}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_a2cb0e77669028d6b6100a54a76ddf589} 
+str ttinyed.\+TTinyed\+App.\+nofile\+Opened\+String = \textquotesingle{}New File\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00023}{23}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+\Hypertarget{classttinyed_1_1_t_tinyed_app_a3476b40652f3f8d4dc154a1b5d7c1ade}\index{ttinyed.TTinyedApp@{ttinyed.TTinyedApp}!os@{os}}
+\index{os@{os}!ttinyed.TTinyedApp@{ttinyed.TTinyedApp}}
+\doxysubsubsection{\texorpdfstring{os}{os}}
+{\footnotesize\ttfamily \label{classttinyed_1_1_t_tinyed_app_a3476b40652f3f8d4dc154a1b5d7c1ade} 
+ttinyed.\+TTinyed\+App.\+os = platform.\+system()}
+
+
+
+Definition at line \mbox{\hyperlink{ttinyed_8py_source_l00029}{29}} of file \mbox{\hyperlink{ttinyed_8py_source}{ttinyed.\+py}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+extra/ttinyed/\mbox{\hyperlink{ttinyed_8py}{ttinyed.\+py}}\end{DoxyCompactItemize}

@@ -1,0 +1,167 @@
+\doxysection{intmath doxy.\+py}
+\hypertarget{intmath_01doxy_8py_source}{}\label{intmath_01doxy_8py_source}\mbox{\hyperlink{intmath_01doxy_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00001}\mbox{\hyperlink{namespaceintmath_01doxy}{00001}}\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00002}\mbox{\hyperlink{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e}{00002}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e}{isprime}}(n):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00003}00003\ \ \ \ \ \textcolor{stringliteral}{'''!\ Determine\ if\ a\ number\ is\ prime.}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ bool\ True\ if\ n\ is\ prime,\ otherwise\ False}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00006}00006\ \textcolor{stringliteral}{\ \ \ \ @throws\ None\ if\ n\ is\ an\ int;\ TypeError\ for\ non-\/int\ types\ due\ to\ modulo}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer;\ boundary:\ n\ <=\ 1\ is\ not\ prime}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00008}00008\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00009}00009\ \textcolor{stringliteral}{\ \ \ \ isprime(2)\ \ \ \ \ \ \#\ True}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00010}00010\ \textcolor{stringliteral}{\ \ \ \ isprime(15)\ \ \ \ \ \#\ False}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ isprime(-\/7)\ \ \ \ \ \#\ False}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00012}00012\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00013}00013\ \textcolor{stringliteral}{\ \ \ \ @bug\ Does\ not\ explicitly\ validate\ type;\ non-\/integer\ n\ may\ raise\ TypeError}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00014}00014\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <=\ 1:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ 2\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00021}00021\ \ \ \ \ p\ =\ 3}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{while}\ p*p\ <=\ n:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ p\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00025}00025\ \ \ \ \ \ \ \ \ p\ +=\ 2}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00027}\mbox{\hyperlink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{00027}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{nextprime}}(n):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00028}00028\ \ \ \ \ \textcolor{stringliteral}{'''!\ Return\ the\ next\ prime\ strictly\ greater\ than\ n\ (or\ the\ first\ prime\ for\ small\ n).}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int\ The\ next\ prime\ number}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ very\ large\ n\ due\ to\ recursion\ depth}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer;\ boundary:\ n\ <=\ 1\ returns\ 2;\ n\ ==\ 2\ returns\ 3}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00033}00033\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ nextprime(2)\ \ \ \ \#\ 3}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ nextprime(3)\ \ \ \ \#\ 5}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ nextprime(14)\ \ \ \#\ 17}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ @bug\ No\ type\ check;\ non-\/integer\ n\ may\ lead\ to\ TypeError\ or\ incorrect\ behavior}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <=\ 1:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ ==\ 2:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 3}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ 2\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{nextprime}}(n-\/1)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{if}\ \mbox{\hyperlink{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e}{isprime}}(n+2):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n+2}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00048}00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{nextprime}}(n+2)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00049}\mbox{\hyperlink{namespaceintmath_01doxy_aec5f0c177be46bb437e960d931c06da2}{00049}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_aec5f0c177be46bb437e960d931c06da2}{primefactors}}(n):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00050}00050\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ the\ prime\ factorization\ of\ n.}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00052}00052\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ list\ List\ of\ prime\ factors\ in\ non-\/decreasing\ order}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00053}00053\ \textcolor{stringliteral}{\ \ \ \ @throws\ None\ for\ n\ >=\ 1;\ may\ loop\ unexpectedly\ for\ invalid\ types}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00054}00054\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer\ >=\ 1;\ boundary:\ n\ ==\ 1\ returns\ []}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00055}00055\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00056}00056\ \textcolor{stringliteral}{\ \ \ \ primefactors(1)\ \ \ \ \ \#\ []}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ primefactors(12)\ \ \ \ \#\ [2,\ 2,\ 3]}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00058}00058\ \textcolor{stringliteral}{\ \ \ \ primefactors(97)\ \ \ \ \#\ [97]}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00059}00059\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00060}00060\ \textcolor{stringliteral}{\ \ \ \ @bug\ Negative\ or\ zero\ values\ are\ not\ validated;\ n\ <=\ 0\ returns\ []\ without\ error}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00061}00061\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00062}00062\ \ \ \ \ factors\ =\ []}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00063}00063\ \ \ \ \ p\ =\ 2}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00064}00064\ \ \ \ \ \textcolor{keywordflow}{while}\ n\ >\ 1:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ p\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ factors.append(p)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ n\ //\ p}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ \mbox{\hyperlink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{nextprime}}(p)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{return}\ factors}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00071}\mbox{\hyperlink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{00071}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{power}}(c,\ n):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00072}00072\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ c\ raised\ to\ the\ power\ n\ using\ fast\ exponentiation\ for\ integer\ n.}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00073}00073\ \textcolor{stringliteral}{\ \ \ \ @param\ c\ t\ number\ Base\ (int,\ float,\ or\ any\ type\ supporting\ *\ and\ pow)}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00074}00074\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int|float\ Exponent;\ integers\ use\ fast\ recursion,\ non-\/ints\ use\ math.pow}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00075}00075\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ number\ Result\ of\ c**n}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ very\ large\ |n|\ when\ n\ is\ int;\ TypeError\ if\ operations\ unsupported}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00077}00077\ \textcolor{stringliteral}{\ \ \ \ @pre\ Prefer\ integer\ n\ for\ exact\ arithmetic;\ boundary:\ n\ ==\ 0\ returns\ 1,\ n\ <\ 0\ returns\ reciprocal}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00078}00078\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00079}00079\ \textcolor{stringliteral}{\ \ \ \ power(2,\ 10)\ \ \ \ \ \#\ 1024}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00080}00080\ \textcolor{stringliteral}{\ \ \ \ power(2,\ -\/3)\ \ \ \ \ \#\ 0.125}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00081}00081\ \textcolor{stringliteral}{\ \ \ \ power(2.0,\ 0.5)\ \ \#\ 1.4142135623730951\ (uses\ math.pow)}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ @bug\ No\ explicit\ type\ checks;\ non-\/integer\ n\ uses\ math.pow\ which\ returns\ float\ and\ may\ lose\ precision}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ type(n)\ !=\ int:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ math.pow(c,n)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ <\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1/\mbox{\hyperlink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{power}}(c,\ -\/n)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ \%\ 2\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{power}}(c*c,\ n//2)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00093}00093\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00094}00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c\ *\ \mbox{\hyperlink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{power}}(c,\ n-\/1)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00095}\mbox{\hyperlink{namespaceintmath_01doxy_a4164d7d0db07cd3d8286f6656e7a52d2}{00095}}\ \_fact\_mem\ =\ \{0:\ 1\}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00096}\mbox{\hyperlink{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242}{00096}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242}{factorial}}(n):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00097}00097\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ n!\ using\ memoized\ recursion.}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00098}00098\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00099}00099\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int|None\ n!\ for\ n\ >=\ 0;\ None\ for\ n\ <\ 0}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00100}00100\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ very\ large\ n;\ KeyError\ not\ expected\ due\ to\ memoization}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00101}00101\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ a\ non-\/negative\ integer;\ boundary:\ n\ ==\ 0\ returns\ 1}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00102}00102\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ factorial(0)\ \ \ \#\ 1}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00104}00104\ \textcolor{stringliteral}{\ \ \ \ factorial(5)\ \ \ \#\ 120}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ factorial(-\/1)\ \ \#\ None}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ @bug\ No\ type\ validation;\ non-\/integer\ n\ will\ raise\ TypeError\ in\ comparisons\ or\ recursion}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00108}00108\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00111}00111\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ \textcolor{keywordflow}{in}\ \_fact\_mem:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_fact\_mem[n]}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00114}00114\ \ \ \ \ \ \ \ \ res\ =\ n*\mbox{\hyperlink{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242}{factorial}}(n-\/1)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00115}00115\ \ \ \ \ \ \ \ \ \_fact\_mem[n]\ =\ res}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00116}00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00117}\mbox{\hyperlink{namespaceintmath_01doxy_a0d18ac3fb63e1a02312fcf2afff280c4}{00117}}\ \_fib\_mem\ =\ \{1:\ 0,\ 2:\ 1\}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00118}\mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{00118}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{fibbonacci}}(n):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00119}00119\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ the\ nth\ Fibonacci\ number\ using\ memoization\ (1-\/indexed:\ F1=0,\ F2=1).}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00120}00120\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00121}00121\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int|None\ The\ nth\ Fibonacci\ number;\ None\ for\ n\ <\ 0}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00122}00122\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ if\ called\ with\ n\ ==\ 0\ due\ to\ missing\ base\ case;\ deep\ recursion\ otherwise}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00123}00123\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer\ >=\ 1;\ boundary:\ n\ ==\ 1\ -\/>\ 0,\ n\ ==\ 2\ -\/>\ 1}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00124}00124\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00125}00125\ \textcolor{stringliteral}{\ \ \ \ fibbonacci(1)\ \ \#\ 0}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00126}00126\ \textcolor{stringliteral}{\ \ \ \ fibbonacci(6)\ \ \#\ 5}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00127}00127\ \textcolor{stringliteral}{\ \ \ \ fibbonacci(-\/2)\ \#\ None}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00128}00128\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00129}00129\ \textcolor{stringliteral}{\ \ \ \ @bug\ n\ ==\ 0\ is\ not\ handled\ and\ leads\ to\ recursion\ into\ negative\ indices}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00130}00130\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00131}00131\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00133}00133\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \textcolor{keywordflow}{in}\ \_fib\_mem:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_fib\_mem[n]}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ res\ =\ \mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{fibbonacci}}(n-\/1)\ +\ \mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{fibbonacci}}(n-\/2)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00137}00137\ \ \ \ \ \ \ \ \ \_fib\_mem[n]\ =\ res}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{fibbonacci}}(n-\/1)\ +\ \mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{fibbonacci}}(n-\/2)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00139}\mbox{\hyperlink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{00139}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{combination}}(n,\ k):}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00140}00140\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ the\ binomial\ coefficient\ C(n,\ k)\ using\ recursive\ relations.}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00141}00141\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int\ Total\ number\ of\ items}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00142}00142\ \textcolor{stringliteral}{\ \ \ \ @param\ k\ t\ int\ Number\ of\ chosen\ items}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00143}00143\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int|None\ C(n,\ k)\ for\ valid\ 0\ <=\ k\ <=\ n;\ None\ otherwise}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00144}00144\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ large\ n,\ k\ due\ to\ deep\ recursion}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00145}00145\ \textcolor{stringliteral}{\ \ \ \ @pre\ Integers\ n\ >=\ 0,\ k\ >=\ 0,\ and\ 0\ <=\ k\ <=\ n;\ boundary:\ k\ ==\ 0\ or\ n\ ==\ k\ returns\ 1}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00146}00146\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00147}00147\ \textcolor{stringliteral}{\ \ \ \ combination(5,\ 2)\ \ \ \#\ 10}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00148}00148\ \textcolor{stringliteral}{\ \ \ \ combination(10,\ 0)\ \ \#\ 1}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00149}00149\ \textcolor{stringliteral}{\ \ \ \ combination(6,\ 6)\ \ \ \#\ 1}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00150}00150\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00151}00151\ \textcolor{stringliteral}{\ \ \ \ @bug\ Does\ not\ validate\ inputs;\ out-\/of-\/bound\ values\ may\ return\ None\ or\ behave\ unexpectedly}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00152}00152\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00153}00153\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ ==\ k\ \textcolor{keywordflow}{or}\ k\ ==\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00154}00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{elif}\ k\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00156}00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{combination}}(n,\ k-\/1)*(n-\/k+1))\ //\ k}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{elif}\ k\ <\ n:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{combination}}(n-\/1,\ k)*n)\ //\ (n\ -\/\ k)}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ >\ 0\ \textcolor{keywordflow}{and}\ k\ >\ 0:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00160}00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{combination}}(n-\/1,\ k-\/1)*n)\ //\ k}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00161}00161\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{intmath_01doxy_8py_source_l00162}00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+
+\end{DoxyCode}

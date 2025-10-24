@@ -1,0 +1,169 @@
+\doxysection{10.1.1.2-\/usage-\/examples.py}
+\hypertarget{10_81_81_82-usage-examples_8py_source}{}\label{10_81_81_82-usage-examples_8py_source}\mbox{\hyperlink{10_81_81_82-usage-examples_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00001}\mbox{\hyperlink{namespace10}{00001}}\ \textcolor{stringliteral}{"{}"{}"{}Usage\ reference\ and\ examples\ for\ \`{}intmath.py\`{}\ (Google\ style).}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00002}00002\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00003}00003\ \textcolor{stringliteral}{Overview:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00004}00004\ \textcolor{stringliteral}{\ \ \ \ Concise\ usage\ notes\ for\ functions\ in\ \`{}intmath.py\`{}.\ Includes\ args,\ returns,}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00005}00005\ \textcolor{stringliteral}{\ \ \ \ potential\ exceptions\ to\ consider,\ and\ practical\ examples.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00006}00006\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00007}00007\ \textcolor{stringliteral}{Functions}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00008}00008\ \textcolor{stringliteral}{-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00009}00009\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00010}00010\ \textcolor{stringliteral}{isprime(n)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00011}00011\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00012}00012\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (int):\ Candidate\ integer.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00013}00013\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00014}00014\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ bool:\ True\ if\ prime,\ else\ False.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00015}00015\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ \`{}n\`{}\ is\ not\ int-\/like.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00017}00017\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00018}00018\ \textcolor{stringliteral}{nextprime(n)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00019}00019\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00020}00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (int):\ Lower\ bound.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00021}00021\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00022}00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ int:\ Smallest\ prime\ strictly\ greater\ than\ \`{}n\`{}\ (special\ cases\ for\ n<=1).}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00023}00023\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00024}00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ RecursionError:\ For\ extremely\ large\ \`{}n\`{}\ due\ to\ recursion.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00025}00025\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ inputs\ are\ not\ ints.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00026}00026\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00027}00027\ \textcolor{stringliteral}{primefactors(n)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00028}00028\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00029}00029\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (int):\ Integer\ to\ factor\ (n>1\ recommended).}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00030}00030\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00031}00031\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ list[int]:\ Prime\ factors\ with\ multiplicity.\ \`{}n<=1\`{}\ yields\ empty\ list.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00032}00032\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00033}00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ \`{}n\`{}\ is\ not\ an\ int.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00034}00034\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00035}00035\ \textcolor{stringliteral}{power(c,\ n)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00036}00036\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00037}00037\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ c\ (int|float):\ Base.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00038}00038\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (Any):\ Exponent.\ If\ non-\/int,\ uses\ floating\ math.pow.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00039}00039\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00040}00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ int|float:\ c**n.\ Supports\ negative\ and\ zero\ integer\ exponents.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00041}00041\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00042}00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ types\ are\ unsupported\ by\ \`{}math.pow\`{}\ or\ integer\ recursion.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ ZeroDivisionError:\ When\ \`{}c==0\`{}\ and\ \`{}n<0\`{}\ (division\ by\ zero).}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00044}00044\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00045}00045\ \textcolor{stringliteral}{factorial(n)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00046}00046\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00047}00047\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (int):\ Non-\/negative\ integer.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00048}00048\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00049}00049\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ int|None:\ n!;\ returns\ None\ for\ n<0.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00050}00050\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00051}00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ RecursionError:\ For\ very\ large\ n\ (\string~>950)\ due\ to\ recursion\ depth.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00052}00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ \`{}n\`{}\ is\ not\ an\ int.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00053}00053\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00054}00054\ \textcolor{stringliteral}{fibbonacci(n)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00055}00055\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00056}00056\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (int):\ 1-\/indexed\ position\ (1-\/>0,\ 2-\/>1).}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00057}00057\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00058}00058\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ int|None:\ n-\/th\ Fibonacci;\ None\ for\ n<0.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00059}00059\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00060}00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ RecursionError:\ For\ large\ n\ (\string~>950)\ due\ to\ recursion\ depth.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00061}00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ \`{}n\`{}\ is\ not\ an\ int.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00062}00062\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00063}00063\ \textcolor{stringliteral}{combination(n,\ k)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ Args:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00065}00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ n\ (int):\ Number\ of\ items.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00066}00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ k\ (int):\ Chosen\ items.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00067}00067\ \textcolor{stringliteral}{\ \ \ \ Returns:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00068}00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ int|None:\ Binomial\ coefficient;\ returns\ 1\ for\ base\ cases.\ For\ invalid}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00069}00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ domains\ (e.g.,\ k>n,\ negatives),\ code\ may\ return\ None.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00070}00070\ \textcolor{stringliteral}{\ \ \ \ Raises:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00071}00071\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ RecursionError:\ For\ large\ inputs\ due\ to\ deep\ recursion.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00072}00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ TypeError:\ If\ \`{}n\`{}/\`{}k\`{}\ are\ not\ ints.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00073}00073\ \textcolor{stringliteral}{\ \ \ \ BUG:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00074}00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Invalid\ domains\ (\`{}n<0\`{},\ \`{}k<0\`{},\ or\ \`{}k>n\`{})\ are\ not\ validated\ in\ the}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00075}00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ current\ implementation;\ e.g.,\ \`{}combination(-\/1,\ 2)\`{}\ returns\ an\ int}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00076}00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ instead\ of\ \`{}None\`{}.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00077}00077\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00078}00078\ \textcolor{stringliteral}{Examples}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00079}00079\ \textcolor{stringliteral}{-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00080}00080\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00081}00081\ \textcolor{stringliteral}{Basic\ usage:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ >>>\ from\ intmath\ import\ isprime,\ nextprime,\ primefactors,\ power,\ factorial,\ fibbonacci,\ combination}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ >>>\ isprime(29)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00084}00084\ \textcolor{stringliteral}{\ \ \ \ True}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00085}00085\ \textcolor{stringliteral}{\ \ \ \ >>>\ nextprime(29)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00086}00086\ \textcolor{stringliteral}{\ \ \ \ 31}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00087}00087\ \textcolor{stringliteral}{\ \ \ \ >>>\ primefactors(360)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00088}00088\ \textcolor{stringliteral}{\ \ \ \ [2,\ 2,\ 2,\ 3,\ 3,\ 5]}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00089}00089\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00090}00090\ \textcolor{stringliteral}{\ \ \ \ >>>\ power(2,\ 10)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00091}00091\ \textcolor{stringliteral}{\ \ \ \ 1024}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00092}00092\ \textcolor{stringliteral}{\ \ \ \ >>>\ round(power(2.0,\ 0.5),\ 10)\ ==\ round(2.0\ **\ 0.5,\ 10)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00093}00093\ \textcolor{stringliteral}{\ \ \ \ True}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00094}00094\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00095}00095\ \textcolor{stringliteral}{\ \ \ \ >>>\ factorial(0)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00096}00096\ \textcolor{stringliteral}{\ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00097}00097\ \textcolor{stringliteral}{\ \ \ \ >>>\ factorial(5)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00098}00098\ \textcolor{stringliteral}{\ \ \ \ 120}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00099}00099\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00100}00100\ \textcolor{stringliteral}{\ \ \ \ >>>\ fibbonacci(1)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00101}00101\ \textcolor{stringliteral}{\ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00102}00102\ \textcolor{stringliteral}{\ \ \ \ >>>\ fibbonacci(2)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00104}00104\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ >>>\ combination(5,\ 2)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ 10}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00107}00107\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00108}00108\ \textcolor{stringliteral}{Handling\ invalid\ arguments\ that\ yield\ None\ (not\ exceptions):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00109}00109\ \textcolor{stringliteral}{\ \ \ \ >>>\ from\ intmath\ import\ factorial,\ fibbonacci,\ combination}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00110}00110\ \textcolor{stringliteral}{\ \ \ \ >>>\ factorial(-\/1)\ is\ None}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00111}00111\ \textcolor{stringliteral}{\ \ \ \ True}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00112}00112\ \textcolor{stringliteral}{\ \ \ \ >>>\ fibbonacci(-\/3)\ is\ None}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00113}00113\ \textcolor{stringliteral}{\ \ \ \ True}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00114}00114\ \textcolor{stringliteral}{\ \ \ \ >>>\ combination(-\/1,\ 2)\ is\ None}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00115}00115\ \textcolor{stringliteral}{\ \ \ \ True}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00116}00116\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00117}00117\ \textcolor{stringliteral}{Catching\ potential\ exceptions\ (types,\ recursion,\ zero\ division):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00118}00118\ \textcolor{stringliteral}{\ \ \ \ >>>\ from\ intmath\ import\ power,\ nextprime,\ factorial,\ fibbonacci,\ combination}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00119}00119\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00120}00120\ \textcolor{stringliteral}{\ \ \ \ \#\ Type\ errors\ for\ unsupported\ inputs}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00121}00121\ \textcolor{stringliteral}{\ \ \ \ >>>\ power("{}2"{},\ 10)\ \ \#\ doctest:\ +IGNORE\_EXCEPTION\_DETAIL}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00122}00122\ \textcolor{stringliteral}{\ \ \ \ Traceback\ (most\ recent\ call\ last):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00123}00123\ \textcolor{stringliteral}{\ \ \ \ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00124}00124\ \textcolor{stringliteral}{\ \ \ \ TypeError:\ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00125}00125\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00126}00126\ \textcolor{stringliteral}{\ \ \ \ \#\ Zero\ division\ when\ base\ is\ zero\ and\ exponent\ negative}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00127}00127\ \textcolor{stringliteral}{\ \ \ \ >>>\ power(0,\ -\/1)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00128}00128\ \textcolor{stringliteral}{\ \ \ \ Traceback\ (most\ recent\ call\ last):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00129}00129\ \textcolor{stringliteral}{\ \ \ \ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00130}00130\ \textcolor{stringliteral}{\ \ \ \ ZeroDivisionError:\ division\ by\ zero}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00131}00131\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00132}00132\ \textcolor{stringliteral}{\ \ \ \ \#\ Recursion\ risks\ for\ very\ large\ n\ (Python\ default\ limit\ \string~1000)}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00133}00133\ \textcolor{stringliteral}{\ \ \ \ >>>\ factorial(2000)\ \ \#\ doctest:\ +SKIP}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00134}00134\ \textcolor{stringliteral}{\ \ \ \ Traceback\ (most\ recent\ call\ last):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00135}00135\ \textcolor{stringliteral}{\ \ \ \ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00136}00136\ \textcolor{stringliteral}{\ \ \ \ RecursionError:\ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00137}00137\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00138}00138\ \textcolor{stringliteral}{\ \ \ \ >>>\ fibbonacci(2000)\ \ \#\ doctest:\ +SKIP}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00139}00139\ \textcolor{stringliteral}{\ \ \ \ Traceback\ (most\ recent\ call\ last):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00140}00140\ \textcolor{stringliteral}{\ \ \ \ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00141}00141\ \textcolor{stringliteral}{\ \ \ \ RecursionError:\ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00142}00142\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00143}00143\ \textcolor{stringliteral}{\ \ \ \ >>>\ combination(2000,\ 1000)\ \ \#\ doctest:\ +SKIP}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00144}00144\ \textcolor{stringliteral}{\ \ \ \ Traceback\ (most\ recent\ call\ last):}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00145}00145\ \textcolor{stringliteral}{\ \ \ \ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00146}00146\ \textcolor{stringliteral}{\ \ \ \ RecursionError:\ ...}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00147}00147\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00148}00148\ \textcolor{stringliteral}{\ \ \ \ \#\ nextprime\ rarely\ hits\ recursion\ limits,\ but\ catch\ defensively\ if\ using\ huge\ n}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00149}00149\ \textcolor{stringliteral}{\ \ \ \ >>>\ nextprime(10**12)\ \ \#\ doctest:\ +SKIP}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00150}00150\ \textcolor{stringliteral}{\ \ \ \ 1000000000039}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00151}00151\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00152}00152\ \textcolor{stringliteral}{When\ to\ catch\ exceptions:}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00153}00153\ \textcolor{stringliteral}{\ \ \ \ -\/\ TypeError:\ User\ inputs\ or\ deserialized\ data\ may\ be\ non-\/numeric.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00154}00154\ \textcolor{stringliteral}{\ \ \ \ -\/\ ZeroDivisionError:\ Guard\ power(0,\ negative);\ validate\ before\ calling.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00155}00155\ \textcolor{stringliteral}{\ \ \ \ -\/\ RecursionError:\ For\ untrusted\ or\ very\ large\ n\ in\ factorial,\ fibbonacci,}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00156}00156\ \textcolor{stringliteral}{\ \ \ \ \ \ and\ combination\ (and\ rarely\ nextprime).\ Prefer\ iterative\ approaches\ or}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00157}00157\ \textcolor{stringliteral}{\ \ \ \ \ \ validate\ bounds\ pre-\/call.}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00158}00158\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00159}00159\ }
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00160}00160\ \textcolor{keywordflow}{if}\ \_\_name\_\_\ ==\ \textcolor{stringliteral}{"{}\_\_main\_\_"{}}:}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00161}00161\ \ \ \ \ \textcolor{keyword}{import}\ doctest}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00162}\mbox{\hyperlink{namespace10_a71bd981a24458f70d0a42ae61895fad1}{00162}}\ \ \ \ \ doctest.testmod(verbose=\textcolor{keyword}{True})}
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{10_81_81_82-usage-examples_8py_source_l00164}00164\ }
+
+\end{DoxyCode}

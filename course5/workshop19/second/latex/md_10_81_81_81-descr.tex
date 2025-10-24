@@ -1,0 +1,71 @@
+\chapter{intmath.\+py API overview }
+\hypertarget{md_10_81_81_81-descr}{}\label{md_10_81_81_81-descr}\index{intmath.py API overview@{intmath.py API overview}}
+\label{md_10_81_81_81-descr_autotoc_md0}%
+\Hypertarget{md_10_81_81_81-descr_autotoc_md0}%
+\hypertarget{md_10_81_81_81-descr_autotoc_md1}{}\doxysubsection{\texorpdfstring{{\ttfamily isprime(n)}}{{\ttfamily isprime(n)}}}\label{md_10_81_81_81-descr_autotoc_md1}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily n} int
+\item {\bfseries{returns}}\+: bool (prime test)
+\item {\bfseries{boundaries}}\+: {\ttfamily n\texorpdfstring{$<$}{<}=1 → False}, {\ttfamily n==2 → True}, even {\ttfamily \texorpdfstring{$>$}{>}2 → False}
+\item {\bfseries{deps}}\+: none (internal logic only)
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md2}{}\doxysubsection{\texorpdfstring{{\ttfamily nextprime(n)}}{{\ttfamily nextprime(n)}}}\label{md_10_81_81_81-descr_autotoc_md2}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily n} int
+\item {\bfseries{returns}}\+: next prime strictly greater than {\ttfamily n} (special\+: {\ttfamily n\texorpdfstring{$<$}{<}=1 → 2}, {\ttfamily n==2 → 3})
+\item {\bfseries{boundaries}}\+: recurses; large {\ttfamily n} may hit recursion limits
+\item {\bfseries{deps}}\+: {\ttfamily isprime}
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md3}{}\doxysubsection{\texorpdfstring{{\ttfamily primefactors(n)}}{{\ttfamily primefactors(n)}}}\label{md_10_81_81_81-descr_autotoc_md3}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily n} int
+\item {\bfseries{returns}}\+: list\mbox{[}int\mbox{]} of prime factors (with multiplicity); {\ttfamily n\texorpdfstring{$<$}{<}=1 → \mbox{[}\mbox{]}}
+\item {\bfseries{boundaries}}\+: trial division; may be slow for large primes
+\item {\bfseries{deps}}\+: {\ttfamily nextprime}
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md4}{}\doxysubsection{\texorpdfstring{{\ttfamily power(c, n)}}{{\ttfamily power(c, n)}}}\label{md_10_81_81_81-descr_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily c} number, {\ttfamily n} any
+\item {\bfseries{returns}}\+: {\ttfamily c\texorpdfstring{$^\wedge$}{\string^}n}; if {\ttfamily n} is not {\ttfamily int} uses floating {\ttfamily math.\+pow}
+\item {\bfseries{boundaries}}\+: supports negative and zero integer exponents; recursion depth logarithmic for int {\ttfamily n}
+\item {\bfseries{deps}}\+: {\ttfamily math.\+pow}
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md5}{}\doxysubsection{\texorpdfstring{{\ttfamily factorial(n)}}{{\ttfamily factorial(n)}}}\label{md_10_81_81_81-descr_autotoc_md5}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily n} int
+\item {\bfseries{returns}}\+: {\ttfamily n!} int; {\ttfamily n\texorpdfstring{$<$}{<}0 → None}
+\item {\bfseries{boundaries}}\+: memoized ({\ttfamily \+\_\+fact\+\_\+mem} with {\ttfamily 0\+:1}); recursion depth O(n)
+\item {\bfseries{deps}}\+: {\ttfamily \+\_\+fact\+\_\+mem} dict
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md6}{}\doxysubsection{\texorpdfstring{{\ttfamily fibbonacci(n)}}{{\ttfamily fibbonacci(n)}}}\label{md_10_81_81_81-descr_autotoc_md6}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily n} int (1-\/indexed\+: {\ttfamily \+\_\+fib\+\_\+mem=\{1\+:0,2\+:1\}})
+\item {\bfseries{returns}}\+: n-\/th Fibonacci; {\ttfamily n\texorpdfstring{$<$}{<}0 → None}
+\item {\bfseries{boundaries}}\+: {\ttfamily n==0} causes invalid recursion (adds {\ttfamily None}); recursion heavy despite memo write; inconsistent return uses recomputation
+\item {\bfseries{deps}}\+: {\ttfamily \+\_\+fib\+\_\+mem} dict
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md7}{}\doxysubsection{\texorpdfstring{{\ttfamily combination(n, k)}}{{\ttfamily combination(n, k)}}}\label{md_10_81_81_81-descr_autotoc_md7}
+
+\begin{DoxyItemize}
+\item {\bfseries{params}}\+: {\ttfamily n} int, {\ttfamily k} int
+\item {\bfseries{returns}}\+: binomial coefficient via recursion; base\+: {\ttfamily n==k} or {\ttfamily k==0 → 1}; {\ttfamily else →} various recursive cases
+\item {\bfseries{boundaries}}\+: behavior for {\ttfamily k\texorpdfstring{$>$}{>}n}, {\ttfamily k\texorpdfstring{$<$}{<}0}, {\ttfamily n\texorpdfstring{$<$}{<}0} not well-\/defined; may be inefficient/deep recursion
+\item {\bfseries{deps}}\+: self-\/recursive only
+\item {\bfseries{BUG}}\+: invalid domains ({\ttfamily n\texorpdfstring{$<$}{<}0}, {\ttfamily k\texorpdfstring{$<$}{<}0}, {\ttfamily k\texorpdfstring{$>$}{>}n}) are not guarded; function may return an int instead of {\ttfamily None} as implied.
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md8}{}\doxysubsection{\texorpdfstring{Module-\/level}{Module-\/level}}\label{md_10_81_81_81-descr_autotoc_md8}
+
+\begin{DoxyItemize}
+\item {\bfseries{imports}}\+: {\ttfamily math}
+\item {\bfseries{state}}\+: {\ttfamily \+\_\+fact\+\_\+mem}, {\ttfamily \+\_\+fib\+\_\+mem}
+\end{DoxyItemize}\hypertarget{md_10_81_81_81-descr_autotoc_md9}{}\doxysubsection{\texorpdfstring{Large n expectations (default Python recursionlimit ≈ 1000)}{Large n expectations (default Python recursionlimit ≈ 1000)}}\label{md_10_81_81_81-descr_autotoc_md9}
+
+\begin{DoxyItemize}
+\item {\bfseries{factorial(n)}}\+: depth ≈ n → risk for {\ttfamily n ≳ 950–990} (Recursion\+Error)
+\item {\bfseries{fibbonacci(n)}}\+: depth ≈ n (top-\/down recursion) → risk for {\ttfamily n ≳ 950–990}
+\item {\bfseries{combination(n,k)}}\+: depth can approach {\ttfamily max(n, k, n−k)} depending on branch → risk when any dimension ≳ 950–990
+\item {\bfseries{nextprime(n)}}\+: depth ≈ prime gap after {\ttfamily n}; typically \texorpdfstring{$<$}{<}100; safe for usual inputs
+\item {\bfseries{power(c,n)}}\+: depth ≈ O(log2(\texorpdfstring{$\vert$}{|}n\texorpdfstring{$\vert$}{|})) for int {\ttfamily n} → safe up to very large \texorpdfstring{$\vert$}{|}n\texorpdfstring{$\vert$}{|}
+\item {\bfseries{primefactors(n)}}\+: iterative; safe, but time grows with size of {\ttfamily n}
+\end{DoxyItemize}
+
+Notes\+: Use {\ttfamily sys.\+getrecursionlimit()} to inspect and {\ttfamily sys.\+setrecursionlimit(v)} to raise if truly needed; prefer iterative/memoized forms for robustness. 

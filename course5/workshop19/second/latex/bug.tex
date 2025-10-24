@@ -1,0 +1,33 @@
+\chapter{Bug List }
+\hypertarget{bug}{}\label{bug}\index{Bug List@{Bug List}}
+
+\begin{DoxyRefList}
+\item[doxy Member \doxylink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{intmath doxy.combination} (n, k)]\hfill \\
+\label{bug__bug000007}%
+\Hypertarget{bug__bug000007}%
+Does not validate inputs; out-\/of-\/bound values may return None or behave unexpectedly  
+\item[doxy Member \doxylink{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242}{intmath doxy.factorial} (n)]\hfill \\
+\label{bug__bug000005}%
+\Hypertarget{bug__bug000005}%
+No type validation; non-\/integer n will raise Type\+Error in comparisons or recursion  
+\item[doxy Member \doxylink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{intmath doxy.fibbonacci} (n)]\hfill \\
+\label{bug__bug000006}%
+\Hypertarget{bug__bug000006}%
+n == 0 is not handled and leads to recursion into negative indices  
+\item[doxy Member \doxylink{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e}{intmath doxy.isprime} (n)]\hfill \\
+\label{bug__bug000001}%
+\Hypertarget{bug__bug000001}%
+Does not explicitly validate type; non-\/integer n may raise Type\+Error  
+\item[doxy Member \doxylink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{intmath doxy.nextprime} (n)]\hfill \\
+\label{bug__bug000002}%
+\Hypertarget{bug__bug000002}%
+No type check; non-\/integer n may lead to Type\+Error or incorrect behavior  
+\item[doxy Member \doxylink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{intmath doxy.power} (c, n)]\hfill \\
+\label{bug__bug000004}%
+\Hypertarget{bug__bug000004}%
+No explicit type checks; non-\/integer n uses math.\+pow which returns float and may lose precision  
+\item[doxy Member \doxylink{namespaceintmath_01doxy_aec5f0c177be46bb437e960d931c06da2}{intmath doxy.primefactors} (n)]\hfill \\
+\label{bug__bug000003}%
+\Hypertarget{bug__bug000003}%
+Negative or zero values are not validated; n \texorpdfstring{$<$}{<}= 0 returns \mbox{[}\mbox{]} without error 
+\end{DoxyRefList}

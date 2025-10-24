@@ -1,0 +1,534 @@
+\doxysection{intmath doxy Namespace Reference}
+\hypertarget{namespaceintmath_01doxy}{}\label{namespaceintmath_01doxy}\index{intmath doxy@{intmath doxy}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e}{isprime}} (n)
+\begin{DoxyCompactList}\small\item\em Determine if a number is prime. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}{nextprime}} (n)
+\begin{DoxyCompactList}\small\item\em Return the next prime strictly greater than n (or the first prime for small n). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_aec5f0c177be46bb437e960d931c06da2}{primefactors}} (n)
+\begin{DoxyCompactList}\small\item\em Compute the prime factorization of n. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}{power}} (c, n)
+\begin{DoxyCompactList}\small\item\em Compute c raised to the power n using fast exponentiation for integer n. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242}{factorial}} (n)
+\begin{DoxyCompactList}\small\item\em Compute n! \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}{fibbonacci}} (n)
+\begin{DoxyCompactList}\small\item\em Compute the nth Fibonacci number using memoization (1-\/indexed\+: F1=0, F2=1). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}{combination}} (n, k)
+\begin{DoxyCompactList}\small\item\em Compute the binomial coefficient C(n, k) using recursive relations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dict \mbox{\hyperlink{namespaceintmath_01doxy_a4164d7d0db07cd3d8286f6656e7a52d2}{\+\_\+fact\+\_\+mem}} = \{0\+: 1\}
+\item 
+dict \mbox{\hyperlink{namespaceintmath_01doxy_a0d18ac3fb63e1a02312fcf2afff280c4}{\+\_\+fib\+\_\+mem}} = \{1\+: 0, 2\+: 1\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespaceintmath_01doxy_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074}\index{intmath doxy@{intmath doxy}!combination@{combination}}
+\index{combination@{combination}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{combination()}{combination()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_abd89b81fe5ae4de57de62dced832c074} 
+intmath doxy.\+combination (\begin{DoxyParamCaption}\item[{}]{n}{, }\item[{}]{k}{}\end{DoxyParamCaption})}
+
+
+
+Compute the binomial coefficient C(n, k) using recursive relations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & t int Total number of items \\
+\hline
+{\em k} & t int Number of chosen items \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & int\texorpdfstring{$\vert$}{|}\+None C(n, k) for valid 0 \texorpdfstring{$<$}{<}= k \texorpdfstring{$<$}{<}= n; None otherwise \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Recursion\+Error} & for large n, k due to deep recursion \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+Integers n \texorpdfstring{$>$}{>}= 0, k \texorpdfstring{$>$}{>}= 0, and 0 \texorpdfstring{$<$}{<}= k \texorpdfstring{$<$}{<}= n; boundary\+: k == 0 or n == k returns 1 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{combination(5,\ 2)\ \ \ \textcolor{comment}{\#\ 10}}
+\DoxyCodeLine{combination(10,\ 0)\ \ \textcolor{comment}{\#\ 1}}
+\DoxyCodeLine{combination(6,\ 6)\ \ \ \textcolor{comment}{\#\ 1}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000007}{Bug}}]Does not validate inputs; out-\/of-\/bound values may return None or behave unexpectedly \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00139}{139}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00139\ \textcolor{keyword}{def\ }combination(n,\ k):}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ the\ binomial\ coefficient\ C(n,\ k)\ using\ recursive\ relations.}}
+\DoxyCodeLine{00141\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int\ Total\ number\ of\ items}}
+\DoxyCodeLine{00142\ \textcolor{stringliteral}{\ \ \ \ @param\ k\ t\ int\ Number\ of\ chosen\ items}}
+\DoxyCodeLine{00143\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int|None\ C(n,\ k)\ for\ valid\ 0\ <=\ k\ <=\ n;\ None\ otherwise}}
+\DoxyCodeLine{00144\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ large\ n,\ k\ due\ to\ deep\ recursion}}
+\DoxyCodeLine{00145\ \textcolor{stringliteral}{\ \ \ \ @pre\ Integers\ n\ >=\ 0,\ k\ >=\ 0,\ and\ 0\ <=\ k\ <=\ n;\ boundary:\ k\ ==\ 0\ or\ n\ ==\ k\ returns\ 1}}
+\DoxyCodeLine{00146\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00147\ \textcolor{stringliteral}{\ \ \ \ combination(5,\ 2)\ \ \ \#\ 10}}
+\DoxyCodeLine{00148\ \textcolor{stringliteral}{\ \ \ \ combination(10,\ 0)\ \ \#\ 1}}
+\DoxyCodeLine{00149\ \textcolor{stringliteral}{\ \ \ \ combination(6,\ 6)\ \ \ \#\ 1}}
+\DoxyCodeLine{00150\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00151\ \textcolor{stringliteral}{\ \ \ \ @bug\ Does\ not\ validate\ inputs;\ out-\/of-\/bound\ values\ may\ return\ None\ or\ behave\ unexpectedly}}
+\DoxyCodeLine{00152\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ ==\ k\ \textcolor{keywordflow}{or}\ k\ ==\ 0:}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordflow}{elif}\ k\ >\ 0:}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (combination(n,\ k-\/1)*(n-\/k+1))\ //\ k}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{elif}\ k\ <\ n:}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (combination(n-\/1,\ k)*n)\ //\ (n\ -\/\ k)}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ >\ 0\ \textcolor{keywordflow}{and}\ k\ >\ 0:}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (combination(n-\/1,\ k-\/1)*n)\ //\ k}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242}\index{intmath doxy@{intmath doxy}!factorial@{factorial}}
+\index{factorial@{factorial}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{factorial()}{factorial()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_aa97387ce9963cbc6b69f5ae8ea79d242} 
+intmath doxy.\+factorial (\begin{DoxyParamCaption}\item[{}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Compute n! 
+
+using memoized recursion. 
+\begin{DoxyParams}{Parameters}
+{\em n} & t int \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & int\texorpdfstring{$\vert$}{|}\+None n! for n \texorpdfstring{$>$}{>}= 0; None for n \texorpdfstring{$<$}{<} 0 \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Recursion\+Error} & for very large n; Key\+Error not expected due to memoization \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+n should be a non-\/negative integer; boundary\+: n == 0 returns 1 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{factorial(0)\ \ \ \textcolor{comment}{\#\ 1}}
+\DoxyCodeLine{factorial(5)\ \ \ \textcolor{comment}{\#\ 120}}
+\DoxyCodeLine{factorial(-\/1)\ \ \textcolor{comment}{\#\ None}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000005}{Bug}}]No type validation; non-\/integer n will raise Type\+Error in comparisons or recursion \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00096}{96}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \textcolor{keyword}{def\ }factorial(n):}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ n!\ using\ memoized\ recursion.}}
+\DoxyCodeLine{00098\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{00099\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int|None\ n!\ for\ n\ >=\ 0;\ None\ for\ n\ <\ 0}}
+\DoxyCodeLine{00100\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ very\ large\ n;\ KeyError\ not\ expected\ due\ to\ memoization}}
+\DoxyCodeLine{00101\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ a\ non-\/negative\ integer;\ boundary:\ n\ ==\ 0\ returns\ 1}}
+\DoxyCodeLine{00102\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00103\ \textcolor{stringliteral}{\ \ \ \ factorial(0)\ \ \ \#\ 1}}
+\DoxyCodeLine{00104\ \textcolor{stringliteral}{\ \ \ \ factorial(5)\ \ \ \#\ 120}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ factorial(-\/1)\ \ \#\ None}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ @bug\ No\ type\ validation;\ non-\/integer\ n\ will\ raise\ TypeError\ in\ comparisons\ or\ recursion}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <\ 0:}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ \textcolor{keywordflow}{in}\ \_fact\_mem:}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_fact\_mem[n]}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ res\ =\ n*factorial(n-\/1)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \_fact\_mem[n]\ =\ res}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ res}
+
+\end{DoxyCode}
+\Hypertarget{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0}\index{intmath doxy@{intmath doxy}!fibbonacci@{fibbonacci}}
+\index{fibbonacci@{fibbonacci}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{fibbonacci()}{fibbonacci()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_a1a119599d699de8882fa0ac88e13b1f0} 
+intmath doxy.\+fibbonacci (\begin{DoxyParamCaption}\item[{}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Compute the nth Fibonacci number using memoization (1-\/indexed\+: F1=0, F2=1). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & t int \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & int\texorpdfstring{$\vert$}{|}\+None The nth Fibonacci number; None for n \texorpdfstring{$<$}{<} 0 \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Recursion\+Error} & if called with n == 0 due to missing base case; deep recursion otherwise \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+n should be an integer \texorpdfstring{$>$}{>}= 1; boundary\+: n == 1 -\/\texorpdfstring{$>$}{>} 0, n == 2 -\/\texorpdfstring{$>$}{>} 1 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{fibbonacci(1)\ \ \textcolor{comment}{\#\ 0}}
+\DoxyCodeLine{fibbonacci(6)\ \ \textcolor{comment}{\#\ 5}}
+\DoxyCodeLine{fibbonacci(-\/2)\ \textcolor{comment}{\#\ None}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000006}{Bug}}]n == 0 is not handled and leads to recursion into negative indices \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00118}{118}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00118\ \textcolor{keyword}{def\ }fibbonacci(n):}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ the\ nth\ Fibonacci\ number\ using\ memoization\ (1-\/indexed:\ F1=0,\ F2=1).}}
+\DoxyCodeLine{00120\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int|None\ The\ nth\ Fibonacci\ number;\ None\ for\ n\ <\ 0}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ if\ called\ with\ n\ ==\ 0\ due\ to\ missing\ base\ case;\ deep\ recursion\ otherwise}}
+\DoxyCodeLine{00123\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer\ >=\ 1;\ boundary:\ n\ ==\ 1\ -\/>\ 0,\ n\ ==\ 2\ -\/>\ 1}}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{\ \ \ \ fibbonacci(1)\ \ \#\ 0}}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\ \ \ \ fibbonacci(6)\ \ \#\ 5}}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{\ \ \ \ fibbonacci(-\/2)\ \#\ None}}
+\DoxyCodeLine{00128\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00129\ \textcolor{stringliteral}{\ \ \ \ @bug\ n\ ==\ 0\ is\ not\ handled\ and\ leads\ to\ recursion\ into\ negative\ indices}}
+\DoxyCodeLine{00130\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <\ 0:}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keywordtype}{None}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \textcolor{keywordflow}{in}\ \_fib\_mem:}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \_fib\_mem[n]}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ res\ =\ fibbonacci(n-\/1)\ +\ fibbonacci(n-\/2)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \_fib\_mem[n]\ =\ res}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ fibbonacci(n-\/1)\ +\ fibbonacci(n-\/2)}
+
+\end{DoxyCode}
+\Hypertarget{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e}\index{intmath doxy@{intmath doxy}!isprime@{isprime}}
+\index{isprime@{isprime}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{isprime()}{isprime()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_ab1dbb3d77d7a365378729893f86dd28e} 
+intmath doxy.\+isprime (\begin{DoxyParamCaption}\item[{}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Determine if a number is prime. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & t int \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & bool True if n is prime, otherwise False \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em None} & if n is an int; Type\+Error for non-\/int types due to modulo \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+n should be an integer; boundary\+: n \texorpdfstring{$<$}{<}= 1 is not prime 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{isprime(2)\ \ \ \ \ \ \textcolor{comment}{\#\ True}}
+\DoxyCodeLine{isprime(15)\ \ \ \ \ \textcolor{comment}{\#\ False}}
+\DoxyCodeLine{isprime(-\/7)\ \ \ \ \ \textcolor{comment}{\#\ False}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000001}{Bug}}]Does not explicitly validate type; non-\/integer n may raise Type\+Error \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00002}{2}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00002\ \textcolor{keyword}{def\ }isprime(n):}
+\DoxyCodeLine{00003\ \ \ \ \ \textcolor{stringliteral}{'''!\ Determine\ if\ a\ number\ is\ prime.}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ bool\ True\ if\ n\ is\ prime,\ otherwise\ False}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ @throws\ None\ if\ n\ is\ an\ int;\ TypeError\ for\ non-\/int\ types\ due\ to\ modulo}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer;\ boundary:\ n\ <=\ 1\ is\ not\ prime}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ isprime(2)\ \ \ \ \ \ \#\ True}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ isprime(15)\ \ \ \ \ \#\ False}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ isprime(-\/7)\ \ \ \ \ \#\ False}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ @bug\ Does\ not\ explicitly\ validate\ type;\ non-\/integer\ n\ may\ raise\ TypeError}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <=\ 1:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ ==\ 2:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ 2\ ==\ 0:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00021\ \ \ \ \ p\ =\ 3}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{while}\ p*p\ <=\ n:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ p\ ==\ 0:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ p\ +=\ 2}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{True}}
+
+\end{DoxyCode}
+\Hypertarget{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79}\index{intmath doxy@{intmath doxy}!nextprime@{nextprime}}
+\index{nextprime@{nextprime}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{nextprime()}{nextprime()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_ab8e9c8458c34011bb1976eeb19c98f79} 
+intmath doxy.\+nextprime (\begin{DoxyParamCaption}\item[{}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Return the next prime strictly greater than n (or the first prime for small n). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & t int \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & int The next prime number \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Recursion\+Error} & for very large n due to recursion depth \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+n should be an integer; boundary\+: n \texorpdfstring{$<$}{<}= 1 returns 2; n == 2 returns 3 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{nextprime(2)\ \ \ \ \textcolor{comment}{\#\ 3}}
+\DoxyCodeLine{nextprime(3)\ \ \ \ \textcolor{comment}{\#\ 5}}
+\DoxyCodeLine{nextprime(14)\ \ \ \textcolor{comment}{\#\ 17}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000002}{Bug}}]No type check; non-\/integer n may lead to Type\+Error or incorrect behavior \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00027}{27}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027\ \textcolor{keyword}{def\ }nextprime(n):}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{stringliteral}{'''!\ Return\ the\ next\ prime\ strictly\ greater\ than\ n\ (or\ the\ first\ prime\ for\ small\ n).}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ int\ The\ next\ prime\ number}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ very\ large\ n\ due\ to\ recursion\ depth}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer;\ boundary:\ n\ <=\ 1\ returns\ 2;\ n\ ==\ 2\ returns\ 3}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ nextprime(2)\ \ \ \ \#\ 3}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ nextprime(3)\ \ \ \ \#\ 5}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ nextprime(14)\ \ \ \#\ 17}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ @bug\ No\ type\ check;\ non-\/integer\ n\ may\ lead\ to\ TypeError\ or\ incorrect\ behavior}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ <=\ 1:}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 2}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ ==\ 2:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 3}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ 2\ ==\ 0:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nextprime(n-\/1)}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ isprime(n+2):}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ n+2}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ nextprime(n+2)}
+
+\end{DoxyCode}
+\Hypertarget{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba}\index{intmath doxy@{intmath doxy}!power@{power}}
+\index{power@{power}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_a0bb2e760feac7f0cc056341fd46ae2ba} 
+intmath doxy.\+power (\begin{DoxyParamCaption}\item[{}]{c}{, }\item[{}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Compute c raised to the power n using fast exponentiation for integer n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & t number Base (int, float, or any type supporting \texorpdfstring{$\ast$}{*} and pow) \\
+\hline
+{\em n} & t int\texorpdfstring{$\vert$}{|}float Exponent; integers use fast recursion, non-\/ints use math.\+pow \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & number Result of c\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}n \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em Recursion\+Error} & for very large \texorpdfstring{$\vert$}{|}n\texorpdfstring{$\vert$}{|} when n is int; Type\+Error if operations unsupported \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+Prefer integer n for exact arithmetic; boundary\+: n == 0 returns 1, n \texorpdfstring{$<$}{<} 0 returns reciprocal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{power(2,\ 10)\ \ \ \ \ \textcolor{comment}{\#\ 1024}}
+\DoxyCodeLine{power(2,\ -\/3)\ \ \ \ \ \textcolor{comment}{\#\ 0.125}}
+\DoxyCodeLine{power(2.0,\ 0.5)\ \ \textcolor{comment}{\#\ 1.4142135623730951\ (uses\ math.pow)}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000004}{Bug}}]No explicit type checks; non-\/integer n uses math.\+pow which returns float and may lose precision \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00071}{71}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00071\ \textcolor{keyword}{def\ }power(c,\ n):}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ c\ raised\ to\ the\ power\ n\ using\ fast\ exponentiation\ for\ integer\ n.}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ @param\ c\ t\ number\ Base\ (int,\ float,\ or\ any\ type\ supporting\ *\ and\ pow)}}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int|float\ Exponent;\ integers\ use\ fast\ recursion,\ non-\/ints\ use\ math.pow}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ number\ Result\ of\ c**n}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ @throws\ RecursionError\ for\ very\ large\ |n|\ when\ n\ is\ int;\ TypeError\ if\ operations\ unsupported}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ @pre\ Prefer\ integer\ n\ for\ exact\ arithmetic;\ boundary:\ n\ ==\ 0\ returns\ 1,\ n\ <\ 0\ returns\ reciprocal}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ power(2,\ 10)\ \ \ \ \ \#\ 1024}}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ power(2,\ -\/3)\ \ \ \ \ \#\ 0.125}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ power(2.0,\ 0.5)\ \ \#\ 1.4142135623730951\ (uses\ math.pow)}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ @bug\ No\ explicit\ type\ checks;\ non-\/integer\ n\ uses\ math.pow\ which\ returns\ float\ and\ may\ lose\ precision}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ type(n)\ !=\ int:}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ math.pow(c,n)}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ <\ 0:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1/power(c,\ -\/n)}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ ==\ 0:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{elif}\ n\ \%\ 2\ ==\ 0:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ power(c*c,\ n//2)}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ c\ *\ power(c,\ n-\/1)}
+
+\end{DoxyCode}
+\Hypertarget{namespaceintmath_01doxy_aec5f0c177be46bb437e960d931c06da2}\index{intmath doxy@{intmath doxy}!primefactors@{primefactors}}
+\index{primefactors@{primefactors}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{primefactors()}{primefactors()}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_aec5f0c177be46bb437e960d931c06da2} 
+intmath doxy.\+primefactors (\begin{DoxyParamCaption}\item[{}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Compute the prime factorization of n. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & t int \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em t} & list List of prime factors in non-\/decreasing order \\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em None} & for n \texorpdfstring{$>$}{>}= 1; may loop unexpectedly for invalid types \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+n should be an integer \texorpdfstring{$>$}{>}= 1; boundary\+: n == 1 returns \mbox{[}\mbox{]} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{primefactors(1)\ \ \ \ \ \textcolor{comment}{\#\ []}}
+\DoxyCodeLine{primefactors(12)\ \ \ \ \textcolor{comment}{\#\ [2,\ 2,\ 3]}}
+\DoxyCodeLine{primefactors(97)\ \ \ \ \textcolor{comment}{\#\ [97]}}
+
+\end{DoxyCode}
+ 
+\end{DoxyPrecond}
+\begin{DoxyRefDesc}{Bug}
+\item[\mbox{\hyperlink{bug__bug000003}{Bug}}]Negative or zero values are not validated; n \texorpdfstring{$<$}{<}= 0 returns \mbox{[}\mbox{]} without error \end{DoxyRefDesc}
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00049}{49}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00049\ \textcolor{keyword}{def\ }primefactors(n):}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{stringliteral}{'''!\ Compute\ the\ prime\ factorization\ of\ n.}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ @param\ n\ t\ int}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ @retval\ t\ list\ List\ of\ prime\ factors\ in\ non-\/decreasing\ order}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ @throws\ None\ for\ n\ >=\ 1;\ may\ loop\ unexpectedly\ for\ invalid\ types}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ @pre\ n\ should\ be\ an\ integer\ >=\ 1;\ boundary:\ n\ ==\ 1\ returns\ []}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ @code\{.py\}}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ primefactors(1)\ \ \ \ \ \#\ []}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ primefactors(12)\ \ \ \ \#\ [2,\ 2,\ 3]}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ primefactors(97)\ \ \ \ \#\ [97]}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ @endcode}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ @bug\ Negative\ or\ zero\ values\ are\ not\ validated;\ n\ <=\ 0\ returns\ []\ without\ error}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ '''}}
+\DoxyCodeLine{00062\ \ \ \ \ factors\ =\ []}
+\DoxyCodeLine{00063\ \ \ \ \ p\ =\ 2}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{while}\ n\ >\ 1:}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ n\ \%\ p\ ==\ 0:}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ factors.append(p)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ n\ =\ n\ //\ p}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ p\ =\ nextprime(p)}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ factors}
+
+\end{DoxyCode}
+
+
+\label{doc-var-members}
+\Hypertarget{namespaceintmath_01doxy_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceintmath_01doxy_a4164d7d0db07cd3d8286f6656e7a52d2}\index{intmath doxy@{intmath doxy}!\_fact\_mem@{\_fact\_mem}}
+\index{\_fact\_mem@{\_fact\_mem}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{\_fact\_mem}{\_fact\_mem}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_a4164d7d0db07cd3d8286f6656e7a52d2} 
+dict intmath doxy.\+\_\+fact\+\_\+mem = \{0\+: 1\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00095}{95}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+
+\Hypertarget{namespaceintmath_01doxy_a0d18ac3fb63e1a02312fcf2afff280c4}\index{intmath doxy@{intmath doxy}!\_fib\_mem@{\_fib\_mem}}
+\index{\_fib\_mem@{\_fib\_mem}!intmath doxy@{intmath doxy}}
+\doxysubsubsection{\texorpdfstring{\_fib\_mem}{\_fib\_mem}}
+{\footnotesize\ttfamily \label{namespaceintmath_01doxy_a0d18ac3fb63e1a02312fcf2afff280c4} 
+dict intmath doxy.\+\_\+fib\+\_\+mem = \{1\+: 0, 2\+: 1\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{intmath_01doxy_8py_source_l00117}{117}} of file \mbox{\hyperlink{intmath_01doxy_8py_source}{intmath doxy.\+py}}.
+

@@ -1,0 +1,149 @@
+\doxysection{extra/ttinyed Directory Reference}
+\hypertarget{dir_7c56a814169b64caecca434ab5bc645d}{}\label{dir_7c56a814169b64caecca434ab5bc645d}\index{extra/ttinyed Directory Reference@{extra/ttinyed Directory Reference}}
+\doxysubsubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{ttinyed_8py}{ttinyed.\+py}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\hypertarget{README.md_autotoc_md10}{}\doxysubsection{\texorpdfstring{ttinyed -\/ Tom\+Ki\textquotesingle{}s tiny editor}{ttinyed -\/ Tom\+Ki\textquotesingle{}s tiny editor}}\label{README.md_autotoc_md10}
+A minimal, cross‑platform text editor built with Tkinter. It supports opening, editing, and saving text files with a simple UI, basic editing operations, a crude undo, and quick access to a terminal or file manager in the current file\textquotesingle{}s directory. Configuration is driven by {\ttfamily config.\+json} with per‑\+OS settings.\hypertarget{README.md_autotoc_md11}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{README.md_autotoc_md11}
+
+\begin{DoxyItemize}
+\item Open, edit, and save files ({\ttfamily .txt}, {\ttfamily .py}, {\ttfamily .md}, or any file)
+\item New file buffer (unsaved) and Save As
+\item Basic edit actions\+: Undo, Cut, Copy, Paste, Select All
+\item Crude manual undo stack (up to 100 entries)
+\item Resizable window with monospace font and tab stops
+\item Tools\+: open shell/terminal or file manager in the current file\textquotesingle{}s folder
+\item Hotkeys for all common actions
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md12}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{README.md_autotoc_md12}
+
+\begin{DoxyItemize}
+\item Python 3.\+7+ (Windows or Linux)
+\item Tkinter installed (usually included with standard Python distributions)
+\end{DoxyItemize}
+
+Check Tkinter\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{python\ -\/c\ "{}import\ tkinter;\ print('tk\ ok')"{}}
+
+\end{DoxyCode}
+ If this fails, install Python with Tk support (e.\+g., {\ttfamily sudo apt install python3-\/tk} on Debian/\+Ubuntu).\hypertarget{README.md_autotoc_md13}{}\doxysubsection{\texorpdfstring{Install}{Install}}\label{README.md_autotoc_md13}
+Clone the repository and enter the folder\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/TomasKindahl/ttinyed.git}
+\DoxyCodeLine{cd\ ttinyed}
+
+\end{DoxyCode}
+
+
+No dependencies beyond the Python standard library are required.\hypertarget{README.md_autotoc_md14}{}\doxysubsection{\texorpdfstring{Run}{Run}}\label{README.md_autotoc_md14}
+From the project directory (where {\ttfamily \doxylink{ttinyed_8py}{ttinyed.\+py}} and {\ttfamily config.\+json} are located)\+:
+
+
+\begin{DoxyItemize}
+\item Linux\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{python3\ ttinyed.py}
+
+\end{DoxyCode}
+
+\item Windows (Power\+Shell or CMD)\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{python\ ttinyed.py}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}
+
+You can also open a file directly by passing its path\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{python\ ttinyed.py\ /path/to/file.txt}
+
+\end{DoxyCode}
+ On Windows, you can associate {\ttfamily .txt}/{\ttfamily .md} to run with {\ttfamily python \doxylink{ttinyed_8py}{ttinyed.\+py} "{}\%1"{}} if desired.\hypertarget{README.md_autotoc_md15}{}\doxysubsection{\texorpdfstring{Usage}{Usage}}\label{README.md_autotoc_md15}
+
+\begin{DoxyItemize}
+\item New file\+: File → New (or Ctrl+N)
+\item Open file\+: File → Open (or Ctrl+O)
+\item Save\+: File → Save (or Ctrl+S). For a new buffer, a Save dialog appears.
+\item Save As\+: File → Save as (or Ctrl+\+Shift+S)
+\item Exit\+: File → Exit (or Ctrl+Q)
+\end{DoxyItemize}
+
+When a buffer has unsaved changes, the window title is prefixed with {\ttfamily \texorpdfstring{$\ast$}{*}}.\hypertarget{README.md_autotoc_md16}{}\doxysubsubsection{\texorpdfstring{Editing}{Editing}}\label{README.md_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Undo\+: Edit → Undo (or Ctrl+Z)
+\item Cut\+: Edit → Cut (or Ctrl+X)
+\item Copy\+: Edit → Copy (or Ctrl+C)
+\item Paste\+: Edit → Paste (or Ctrl+P)
+\item Select All\+: Edit → Select All (or Ctrl+A)
+\end{DoxyItemize}
+
+Note\+: Paste (Ctrl+P) uses an internal buffer for copy/cut; it does not access the system clipboard.\hypertarget{README.md_autotoc_md17}{}\doxysubsubsection{\texorpdfstring{Tools}{Tools}}\label{README.md_autotoc_md17}
+
+\begin{DoxyItemize}
+\item Open Shell in current file directory\+: Tools → Shell (or Ctrl+\+Alt+S)
+\item Open File Manager in current file directory\+: Tools → File manager (or Ctrl+\+Alt+F)
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md18}{}\doxysubsection{\texorpdfstring{Configuration (config.\+json)}{Configuration (config.\+json)}}\label{README.md_autotoc_md18}
+The app reads {\ttfamily config.\+json} in the working directory and selects settings based on your OS name ({\ttfamily Windows} or {\ttfamily Linux}). Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ "{}Linux"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}pathsepr"{}:\ "{}/"{},}
+\DoxyCodeLine{\ \ \ \ "{}pathemb"{}:\ "{}'"{},}
+\DoxyCodeLine{\ \ \ \ "{}shell"{}:\ "{}xfce4-\/terminal\ -\/-\/default-\/working-\/directory="{},}
+\DoxyCodeLine{\ \ \ \ "{}filemgr"{}:\ "{}thunar"{},}
+\DoxyCodeLine{\ \ \ \ "{}fontsize"{}:\ 20}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ "{}Windows"{}:\ \{}
+\DoxyCodeLine{\ \ \ \ "{}pathsepr"{}:\ "{}\(\backslash\)\(\backslash\)"{},}
+\DoxyCodeLine{\ \ \ \ "{}pathemb"{}:\ "{}"{},}
+\DoxyCodeLine{\ \ \ \ "{}shell"{}:\ "{}start\ /wait\ cmd\ /k\ cd\ "{},}
+\DoxyCodeLine{\ \ \ \ "{}filemgr"{}:\ "{}explorer"{},}
+\DoxyCodeLine{\ \ \ \ "{}fontsize"{}:\ 10}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\begin{DoxyItemize}
+\item {\bfseries{pathsepr}}\+: path separator for the platform ({\ttfamily /} or {\ttfamily \textbackslash{}\textbackslash{}}).
+\item {\bfseries{pathemb}}\+: quote/escape wrapper for file manager paths (e.\+g., `"{}'"{}\`{} on Linux).
+\item {\bfseries{shell}}\+: command to open a terminal in a specific working directory. The editor will append the target path.
+\item {\bfseries{filemgr}}\+: file manager executable to open a folder.
+\item {\bfseries{fontsize}}\+: base UI font size.
+\end{DoxyItemize}
+
+Adjust {\ttfamily shell} and {\ttfamily filemgr} to match your environment, e.\+g., on GNOME\+: {\ttfamily shell\+: "{}gnome-\/terminal -\/-\/working-\/directory="{}}, {\ttfamily filemgr\+: "{}nautilus"{}}.\hypertarget{README.md_autotoc_md19}{}\doxysubsection{\texorpdfstring{Keyboard Shortcuts}{Keyboard Shortcuts}}\label{README.md_autotoc_md19}
+
+\begin{DoxyItemize}
+\item Ctrl+N\+: New
+\item Ctrl+O\+: Open
+\item Ctrl+S\+: Save
+\item Ctrl+\+Shift+S\+: Save As
+\item Ctrl+Q\+: Exit
+\item Ctrl+Z\+: Undo
+\item Ctrl+X\+: Cut
+\item Ctrl+C\+: Copy
+\item Ctrl+P\+: Paste (internal buffer)
+\item Ctrl+A\+: Select All
+\item Ctrl+\+Alt+S\+: Open Shell in file directory
+\item Ctrl+\+Alt+F\+: Open File Manager in file directory
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md20}{}\doxysubsection{\texorpdfstring{Notes and Limitations}{Notes and Limitations}}\label{README.md_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Undo is a simple stack; redo is not implemented.
+\item Paste uses an internal buffer, not the system clipboard.
+\item When launched with a file path, the editor loads that file if it exists; otherwise, it treats the path as the current buffer name until saved.
+\end{DoxyItemize}\hypertarget{README.md_autotoc_md21}{}\doxysubsection{\texorpdfstring{Troubleshooting}{Troubleshooting}}\label{README.md_autotoc_md21}
+
+\begin{DoxyItemize}
+\item Window too small/large\+: adjust {\ttfamily fontsize} in {\ttfamily config.\+json}.
+\item Terminal or file manager does not open\+: update {\ttfamily shell}/{\ttfamily filemgr} in {\ttfamily config.\+json} to match your desktop (e.\+g., {\ttfamily konsole}, {\ttfamily kitty}, {\ttfamily nautilus}, {\ttfamily dolphin}, {\ttfamily explorer}).
+\item Tkinter missing\+: install {\ttfamily python3-\/tk} on Linux ({\ttfamily sudo apt install python3-\/tk}). On Windows, use the official Python installer which includes Tk. 
+\end{DoxyItemize}

@@ -127,6 +127,7 @@ def fibbonacci(n):
     fibbonacci(-2) # None
     @endcode
     @bug n == 0 is not handled and leads to recursion into negative indices
+    @bug Function should be fibonacci instead (spelling)
     '''
     if n < 0:
         return None
